@@ -223,7 +223,7 @@ def hero(tn, th):
     lines = [
         "building antAi for smart india hackathon 2026",
         "chasing a leaderboard gap in the amazon ml challenge",
-        "just judged the cybersecurity track at fusion 2k26",
+        "shipping jqp, instagram publishing on meta apis",
         "open to freelance: agents, pipelines, automation",
     ]
     n, per = len(lines), 4.5
@@ -347,7 +347,7 @@ def hero_m(tn, th):
     b.append(f'<line x1="{PM}" y1="430.5" x2="{WM - PM}" y2="430.5" stroke="{th["rule"]}"/>')
     b.append(doc.text(PM, 466, 12.5, [t("right now")], th["ink3"], extra=' letter-spacing=".2"'))
     lines = ["antAi for smart india hackathon 2026", "entity resolution, amazon ml challenge",
-             "judged at fusion 2k26", "open for freelance work"]
+             "jqp, publishing on meta apis", "open for freelance work"]
     n, per = len(lines), 4.5
     k = 100 / n
     css += (f"@keyframes cyc{{0%{{opacity:0;transform:translateY(8px)}}{k * .12:.2f}%{{opacity:1;transform:none}}"
@@ -480,9 +480,9 @@ def card(tn, th, c, phone=False):
 
 
 SECTIONS = [
-    ("Hey", "the short version."),
-    ("Worth opening", "if you open three things, open these."),
-    ("Everything else", "by domain, in order of how hard i’d defend them."),
+    ("Things i’ve built", "the ones worth opening. the rest are scratch."),
+    ("Right now", "what’s on the desk this month."),
+    ("Stack", "what the work gets built with."),
 ]
 PILLS = [
     ("hire", "Email me", True, False),
@@ -502,9 +502,6 @@ if __name__ == "__main__":
         hero_m(tn, th)
         footer_m(tn, th)
         footer(tn, th)
-        for c in CARDS:
-            card(tn, th, c)
-            card(tn, th, c, phone=True)
         for name, label, solid, ext in PILLS:
             widths[name] = pill(tn, th, name, label, solid, ext)
     print("pill widths", widths)
