@@ -1,10 +1,8 @@
-"""writes README.md. light github gets the blue field, dark github gets the green."""
+"""writes ../README.md. light github gets the blue field, dark github gets the green."""
 import os
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 GH = "https://github.com/reesick"
-
-
 PHONE = "(max-width: 600px)"
 
 
@@ -23,82 +21,91 @@ def band(slug, alt):
     return pic(f"sec-{slug}", alt, width="100%", phone=True)
 
 
+def card(slug, alt, href=None):
+    return pic(f"card-{slug}", alt, width="100%", phone=True, href=href)
+
+
 def table(rows):
-    out = ["|    | what | with what | the twist |", "| --- | --- | --- | --- |"]
-    for i, (name, link, what, stack, twist) in enumerate(rows, 1):
+    out = ["| what | with what | the twist |", "| --- | --- | --- |"]
+    for i, (name, link, tag, what, stack, twist) in enumerate(rows, 1):
         n = f"**[{name}]({link})**" if link else f"**{name}**"
-        out.append(f"| `{i:02d}` | {n}<br>{what} | {stack} | *{twist}* |")
+        if tag:
+            n += f" `{tag}`"
+        out.append(f"| {n}<br>{what} | {stack} | *{twist}* |")
     return "\n".join(out)
 
 
-def skill(ids, alt):
-    a = f"https://skillicons.dev/icons?i={ids}&perline=12"
-    return (f'<picture><source media="(prefers-color-scheme: dark)" srcset="{a}&theme=dark">'
-            f'<img src="{a}&theme=light" alt="{alt}" height="44"></picture>')
-
-
-def stats():
-    # drawn by src/statscard.py, refreshed daily by the workflow
-    return pic("numbers", "contribution numbers for reesick", width="100%", phone=True)
-
-
 PILLS = [
-    ("hire", "hire me", "mailto:shreeviraj5387@gmail.com"),
+    ("hire", "email me", "mailto:shreeviraj5387@gmail.com"),
     ("site", "shreeviraj.studio", "https://shreeviraj.studio"),
-    ("studio", "jacquard studio", "https://jacquard.shreeviraj.studio"),
     ("x", "x", "https://x.com/shreeviraj_dev"),
     ("linkedin", "linkedin", "https://linkedin.com/in/shreeviraj"),
     ("instagram", "instagram", "https://instagram.com/1cr.sri"),
 ]
 
 AGENTS = [
-    ("MemoryOS", f"{GH}/memos", "open memory middleware for any llm app",
-     "python · knowledge graph · hybrid retrieval",
-     "not plain rag. it extracts facts, settles conflicts and recalls across three stores at once"),
-    ("memos v2", f"{GH}/memos-v2", "local first memory workspace with a dashboard to browse it",
-     "typescript · next.js · sqlite",
-     "runs on synthetic embeddings, so you can try it without a single api key"),
-    ("ABTalks agent", f"{GH}/abtalkshackathon", "finds topics, judges them against a persona, writes and posts",
+    ("ABTalks agent", f"{GH}/abtalkshackathon", None,
+     "finds ai/ml topics, judges them against a persona, writes and posts",
      "python · fastapi · flora",
-     "left alone for 48 hours. nobody touched it"),
-    ("Excel Bot", f"{GH}/Excel-bot", "telegram bot. send any messy file, get an excel dashboard and a deck back",
-     "python · claude code execution · telegram",
-     "claude is the analyst. no picking columns, no questions asked"),
+     "ran 48 hours unattended. nobody touched it"),
+    ("Excel Bot", f"{GH}/Excel-bot", None,
+     "telegram bot. send any messy spreadsheet, get an excel dashboard and a deck back",
+     "python · claude files api · code execution",
+     "claude is the analyst. nobody tells it which columns matter"),
+    ("edi-5", None, "private",
+     "multi domain rag assistant. started on cricket, now does finance and general knowledge too",
+     "fastapi · groq · chroma · react",
+     "it routes before it retrieves. live, historical and analytical questions each get their own path"),
+    ("requirements agent", None, "private",
+     "turns gmail threads and meet transcripts into a requirements doc",
+     "langgraph · gemini 2.5 flash · supabase pgvector",
+     "the meeting ends, the spec is already written"),
 ]
-AUDIT = [
-    ("COVENANT", f"{GH}/COVENANT", "audit grade covenant compliance testing for private credit",
-     "python · sympy · faiss · pdfplumber",
-     "zero floats. exact rational maths, and every run is hash chained and timestamped"),
-    ("ey research", f"{GH}/ey-research", "the research and golden test set behind it, built for the EY techathon",
-     "sec edgar · xbrl · python",
-     "two fake borrowers with planted errors. one of them is quietly in breach"),
+FINANCE = [
+    ("SAR-mvp", f"{GH}/SAR-mvp", None,
+     "anti money laundering: writes the suspicious activity report for an analyst",
+     "langgraph · fastapi · pgvector · ollama",
+     "seven agents and a local mistral. nothing leaves the machine"),
+    ("ESG greenwashing agent", "https://github.com/Pragati-1-7/Automated_ESG_Greenwashing_agent", "collab",
+     "with pragati. reads a sustainability report and checks every claim against filings, regulators and news",
+     "python · agents · layout aware pdf parsing",
+     "every claim ends as align, contradict or insufficient, with an audit trail and a 0 to 100 risk score"),
+    ("ml-challenge", None, "private",
+     "amazon ml challenge 2026. business entity resolution across three sources, three countries",
+     "python · blocking · pruner + matcher",
+     "0.972 on local validation, 0.885 on the leaderboard. hunting the gap"),
 ]
 CIVIC = [
-    ("PS-CRM", f"{GH}/pscrm", "smart public service crm for delhi mcd grievances",
-     "fastapi · langgraph · gemini · postgis · maplibre",
+    ("drone swarm", "https://github.com/tusharsingh-spring/drone_swarm", "collab",
+     "with tushar. a flood and fire response simulator for pune and pcmc",
+     "python · websockets · 3d map",
+     "up to 100 modelled drones working alongside real pcmc ground units"),
+    ("PS-CRM", f"{GH}/pscrm", None,
+     "civic grievance crm for delhi mcd, built as team blackhaze",
+     "fastapi · next.js · langgraph · gemini · postgis",
      "every complaint is a point on a map, and an agent decides where it goes"),
-    ("CLINDerm", f"{GH}/clinderm", "ai facial skin health screening",
+    ("CLINDerm", f"{GH}/clinderm", None,
+     "three face photos in, an annotated skin health report out",
      "yunet · mediapipe · segformer · yolov8",
-     "four vision models chained into one screening pass"),
-    ("threat forecasting", f"{GH}/cybersec-ind", "forecasts cyber threats and the tech that counters them",
+     "four vision models, all running locally on a laptop 4050"),
+    ("threat forecasting", f"{GH}/cybersec-ind", None,
+     "forecasts cyber threats and the tech that counters them",
      "python · bayesian gnn · nvd · gdelt",
-     "a 2025 paper rebuilt end to end, with synthetic fallbacks for when the apis say no"),
+     "a 2025 paper rebuilt end to end, with honest fallbacks when the apis say no"),
 ]
 LEARN = [
-    ("Avinya", f"{GH}/avinya", "personalised video learning with a hybrid recommender",
+    ("Avinya", f"{GH}/avinya", None,
+     "personalised video learning with a hybrid recommender",
      "react · fastapi · supabase · lightfm",
      "three recommenders blended: content, collaborative and knowledge based"),
-    ("algo visualiser", f"{GH}/edai-3-f1", "algorithm visualiser with an ai tutor that watches how you learn",
+    ("algo visualiser", f"{GH}/edai-3-f1", None,
+     "algorithm visualiser with an ai tutor that watches how you learn",
      "react · go · python · gemini",
      "pause too long and it slows down. hit replay and it gets technical"),
-]
-STUDIO = [
-    ("JaCquard Studio", "https://jacquard.shreeviraj.studio", "ai led visual production for fashion, lifestyle and ecommerce brands",
-     "image + video models · custom pipelines",
-     "the ai part stays invisible, so the work gets judged as work"),
-    ("HyperFuel", None, "streetwear label with an ai campaign pipeline behind every drop",
-     "nano banana pro · higgsfield",
-     "a full lookbook, no shoot day"),
+    ("Better VOLP", None, "private",
+     "a cleaner client for my college's classroom platform",
+     "next.js · prisma · cron",
+     "emails you 48 hours before an assignment is due. the original never did"),
 ]
 
 md = f"""{pic("hero", "Shreeviraj Matale. creative director who codes.", width="100%", href="https://shreeviraj.studio", phone=True)}
@@ -109,86 +116,55 @@ md = f"""{pic("hero", "Shreeviraj Matale. creative director who codes.", width="
 
 {band("hey", "Hey. the short version.")}
 
-i'm **sree**. half of me runs [jacquard studio](https://jacquard.shreeviraj.studio), an ai led visual studio for fashion and ecommerce brands. the other half writes agents, memory systems and audit pipelines. usually for a hackathon, sometimes for a client, occasionally just to see if it works.
+i'm **sree**. i build agents, memory systems and audit pipelines. mostly for hackathons, sometimes for clients, occasionally because something annoyed me. i also art direct, which is why this page looks the way it does.
 
-b.tech cse (ai/ml) at [vit pune](https://www.vit.edu). EY techathon semi-finalist. top 10 at india innovates.
+EY techathon semi-finalist · top 10 at india innovates · three hackathon wins · judged cybersecurity at fusion 2k26 · 451 contributions last year, a third of them private
+
+**currently** building antAi for smart india hackathon 2026, which catches voice clone scams before the money moves. open to freelance: agents, pipelines, automation.
+
+python and typescript mostly. go and kotlin when the problem asks for it.
 
 > keep the ai part invisible so the work gets judged as work.
 
-> ship something a hundred thousand people use.
+<br>
+
+{band("worth-opening", "Worth opening. if you open three things, open these.")}
+
+{card("covenant", "COVENANT. audit grade covenant compliance testing for private credit.", f"{GH}/COVENANT")}
+
+<sub>the research and golden test set behind it: [ey-research]({GH}/ey-research)</sub>
+
+{card("memoryos", "MemoryOS. open memory middleware for llm apps.", f"{GH}/memos")}
+
+<sub>and a local first dashboard for it: [memos-v2]({GH}/memos-v2)</sub>
+
+{card("jqp", "jqp. instagram publishing and comment to dm automation on official meta apis. private.")}
 
 <br>
 
-{band("things-ive-built", "Things i've built. the ones worth opening.")}
+{band("everything-else", "Everything else. by domain.")}
 
-### agents & memory
-*things that remember, decide, and keep running when i log off.*
+### agents & retrieval
+*things that decide, route, and keep running when i log off.*
 
 {table(AGENTS)}
 
-### audit & finance
-*where a rounding error is a bug, not a detail.*
+### finance & compliance
+*where a rounding error is a wrong answer.*
 
-{table(AUDIT)}
+{table(FINANCE)}
 
-### civic, health, security
+### civic, health & security
 *maps, faces and threat graphs.*
 
 {table(CIVIC)}
 
-### learning
-*software that teaches back.*
+### learning & small fixes
+*software that teaches back, and one that fixes college.*
 
 {table(LEARN)}
 
-### studio
-*not on github, but it's where the code goes to work.*
-
-{table(STUDIO)}
-
-<br>
-
-{band("right-now", "Right now. what's on the desk this month.")}
-
-- **antAi** for smart india hackathon 2026. fuses voice, video, text and intent into one 0 to 100 risk score to catch voice clone scams. *then it logs, verifies, or freezes.*
-- **jacquard studio**, taking on fashion and ecommerce brands. *dms are open.*
-- **hyperfuel**, the next drop and its campaign. *still no shoot day.*
-- judged the cybersecurity track at **fusion 2k26**. *turns out judging is harder than pitching.*
-
-<br>
-
-{band("stack", "Stack. what the work gets built with.")}
-
-**languages**<br>
-{skill("python,ts,js,cpp,kotlin,go,html,css", "python, typescript, javascript, c++, kotlin, go, html, css")}
-
-**web & backend**<br>
-{skill("react,nextjs,nodejs,fastapi,tailwind,supabase,postgres,sqlite", "react, next.js, node, fastapi, tailwind, supabase, postgres, sqlite")}
-
-**ai & ml**<br>
-{skill("pytorch,tensorflow,opencv,sklearn", "pytorch, tensorflow, opencv, scikit-learn")}
-
-**tools**<br>
-{skill("git,github,docker,vercel,vscode,postman", "git, github, docker, vercel, vs code, postman")}
-
-<br>
-
-**i also**
-
-```
-art direct campaigns
-prompt until it looks shot
-judge hackathons · ship at 2am
-chronically online
-```
-
-*the commit graph has a sleep schedule. i don't.*
-
-<br>
-
-{band("numbers", "Numbers. the graph doesn't lie, it just rounds up.")}
-
-{stats()}
+<sub>`private` means named, not linked. ask and i'll walk you through it. `collab` means a team repo i build in.</sub>
 
 <br>
 

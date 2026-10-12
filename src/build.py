@@ -215,16 +215,16 @@ def hero(tn, th):
     # lede
     b.append(doc.text(PAD, 254, 21, [t("creative director who codes. i build "), hi("agents"), t(", "), hi("pipelines")], th["ink2"]))
     b.append(doc.text(PAD, 290, 21, [t("and the occasional app that actually "), hi("ships"), t(".")], th["ink2"]))
-    b.append(doc.text(PAD, 332, 21, [t("b.tech cse (ai/ml) at vit pune. founder of jacquard studio.")], th["ink3"]))
+    b.append(doc.text(PAD, 332, 21, [t("b.tech cse (ai/ml) at vit pune. mostly shipping at 2am.")], th["ink3"]))
     # toolbar rule
     b.append(f'<line x1="{PAD}" y1="368.5" x2="{W - PAD}" y2="368.5" stroke="{th["rule"]}" stroke-width="1"/>')
     # right now, cycling
     b.append(doc.text(PAD, 414, 13.5, [t("right now")], th["ink3"], extra=' letter-spacing=".2"'))
     lines = [
         "building antAi for smart india hackathon 2026",
-        "running jacquard studio, ai visuals for fashion brands",
-        "dropping hyperfuel with an ai campaign pipeline",
-        "taking on freelance: brand visuals, products, or both",
+        "chasing a leaderboard gap in the amazon ml challenge",
+        "just judged the cybersecurity track at fusion 2k26",
+        "open to freelance: agents, pipelines, automation",
     ]
     n, per = len(lines), 4.5
     dur = n * per
@@ -265,7 +265,7 @@ def footer(tn, th):
     defs, bg, css = field(W, H, th, oy=.42, uid="ft")
     b = [bg]
     b.append(f'<g filter="url(#sh)">' + doc.text(PAD, 96, 52, [doc.run("Say hello", "s")], th["ink"], extra=' letter-spacing="-.7"') + '</g>')
-    b.append(doc.text(PAD, 130, 19, [doc.run("a product to build, a brand to shoot, or both.", "si")], th["ink3"]))
+    b.append(doc.text(PAD, 130, 19, [doc.run("an agent to build, a product to ship, or both.", "si")], th["ink3"]))
     mail = "shreeviraj5387@gmail.com"
     mw = width(mail, "s", 36)
     b.append(doc.text(PAD, 192, 36, [doc.run(mail, "s")], th["ink"]))
@@ -343,11 +343,11 @@ def hero_m(tn, th):
     for y, r in L:
         b.append(doc.text(PM, y, 18, r, th["ink2"]))
     b.append(doc.text(PM, 374, 16.5, [t("b.tech cse (ai/ml) at vit pune.")], th["ink3"]))
-    b.append(doc.text(PM, 399, 16.5, [t("founder of jacquard studio.")], th["ink3"]))
+    b.append(doc.text(PM, 399, 16.5, [t("mostly shipping at 2am.")], th["ink3"]))
     b.append(f'<line x1="{PM}" y1="430.5" x2="{WM - PM}" y2="430.5" stroke="{th["rule"]}"/>')
     b.append(doc.text(PM, 466, 12.5, [t("right now")], th["ink3"], extra=' letter-spacing=".2"'))
-    lines = ["antAi for smart india hackathon 2026", "jacquard studio, ai visuals for fashion",
-             "the next hyperfuel drop", "open for freelance work"]
+    lines = ["antAi for smart india hackathon 2026", "entity resolution, amazon ml challenge",
+             "judged at fusion 2k26", "open for freelance work"]
     n, per = len(lines), 4.5
     k = 100 / n
     css += (f"@keyframes cyc{{0%{{opacity:0;transform:translateY(8px)}}{k * .12:.2f}%{{opacity:1;transform:none}}"
@@ -383,7 +383,7 @@ def footer_m(tn, th):
     mw = width(mail, "s", 30)
     b = [bg,
          f'<g filter="url(#sh)">' + doc.text(PM, 80, 44, [doc.run("Say hello", "s")], th["ink"], extra=' letter-spacing="-.6"') + '</g>',
-         doc.text(PM, 110, 16.5, [doc.run("a product to build, a brand to shoot, or both.", "si")], th["ink3"]),
+         doc.text(PM, 110, 16.5, [doc.run("an agent to build, a product to ship, or both.", "si")], th["ink3"]),
          doc.text(PM, 172, 30, [doc.run(mail, "s")], th["ink"]),
          f'<line x1="{PM}" y1="179.5" x2="{PM + mw:.1f}" y2="179.5" stroke="{th["accent"]}"/>',
          f'<line x1="{PM}" y1="226.5" x2="{WM - PM}" y2="226.5" stroke="{th["rule"]}"/>',
@@ -392,17 +392,101 @@ def footer_m(tn, th):
     save(f"footer-m-{tn}.svg", svg(WM, H, defs, "".join(b), css, doc, "Say hello. shreeviraj5387@gmail.com"))
 
 
+
+# ---------- highlight cards: the three things worth opening ----------
+def wrap(text, f, size, limit):
+    out, cur = [], ""
+    for w in text.split():
+        t = (cur + " " + w).strip()
+        if width(t, f, size) <= limit or not cur:
+            cur = t
+        else:
+            out.append(cur)
+            cur = w
+    out.append(cur)
+    return out
+
+
+CARDS = [
+    dict(slug="covenant", n="01", title="COVENANT", tag="EY techathon, semi-finalist",
+         what="audit grade covenant compliance testing for private credit.",
+         proof="zero floats. exact rational maths, and every run is hash chained and timestamped.",
+         stack="python · sympy · faiss · pdfplumber · fastapi", foot="open repo"),
+    dict(slug="memoryos", n="02", title="MemoryOS", tag="most forked repo",
+         what="open memory middleware for llm apps. put it in front of any chatbot.",
+         proof="extracts facts, settles conflicts, recalls across three stores at once.",
+         stack="python · knowledge graph · hybrid retrieval", foot="open repo"),
+    dict(slug="jqp", n="03", title="jqp", tag="private, 46 commits",
+         what="instagram carousel publishing and comment to dm automation, on official meta apis only.",
+         proof="a crash resumable state machine. a publish that dies halfway picks up where it stopped.",
+         stack="typescript · supabase · bullmq · redis · meta graph api", foot="private, ask for a walkthrough"),
+]
+
+
+def card(tn, th, c, phone=False):
+    Wd, P = (WM, PM) if phone else (W, PAD)
+    lim = Wd - 2 * P
+    doc = Doc()
+    t_size, w_size, p_size = (40, 16, 19) if phone else (50, 18, 22)
+    what = wrap(c["what"], "t", w_size, lim)
+    proof = wrap(c["proof"], "si", p_size, lim)
+    y = 50
+    rows = []
+    rows.append(("meta", y))
+    y += (54 if phone else 62)
+    rows.append(("title", y))
+    y += 18
+    for ln in what:
+        y += w_size * 1.55
+        rows.append(("what", y, ln))
+    y += 8
+    for ln in proof:
+        y += p_size * 1.3
+        rows.append(("proof", y, ln))
+    y += 30
+    rows.append(("rule", y))
+    y += 30
+    rows.append(("stack", y))
+    H = int(y + (28 if phone else 30))
+    defs, bg, css = field(Wd, H, th, oy=[.15, .35, .55][int(c["n"]) - 1], uid="c" + c["n"], radius=14,
+                          vh=Wd * (1.25 if phone else .5625))
+    b = [bg]
+    for r in rows:
+        k = r[0]
+        if k == "meta":
+            b.append(doc.text(P, r[1], 13, [doc.run(c["n"], "m", th["ink2"])], th["ink3"], extra=' class="num" letter-spacing=".3"'))
+            b.append(doc.text(Wd - P, r[1], 13, [doc.run(c["tag"], "t")], th["ink2"], anchor="end", extra=' letter-spacing=".2"'))
+        elif k == "title":
+            b.append(f'<g filter="url(#sh)">' + doc.text(P - 2, r[1], t_size, [doc.run(c["title"], "s")], th["ink"], extra=' letter-spacing="-.6"') + '</g>')
+        elif k == "what":
+            b.append(doc.text(P, r[1], w_size, [doc.run(r[2], "t")], th["ink2"]))
+        elif k == "proof":
+            b.append(doc.text(P, r[1], p_size, [doc.run(r[2], "si")], th["accent"]))
+        elif k == "rule":
+            b.append(f'<line x1="{P}" y1="{r[1] + .5}" x2="{Wd - P}" y2="{r[1] + .5}" stroke="{th["rule"]}"/>')
+        elif k == "stack":
+            if phone:
+                b.append(doc.text(P, r[1], 12, [doc.run(c["stack"], "t")], th["ink3"], extra=' letter-spacing=".15"'))
+                fit([(c["stack"], "t", 12)], lim, c["stack"])
+            else:
+                b.append(doc.text(P, r[1], 13, [doc.run(c["stack"], "t")], th["ink3"], extra=' letter-spacing=".15"'))
+                fw = width(c["foot"], "t", 13)
+                ext = c["foot"] == "open repo"
+                b.append(doc.text(Wd - P - (14 if ext else 0), r[1], 13, [doc.run(c["foot"], "t")], th["ink2"], anchor="end", extra=' letter-spacing=".15"'))
+                if ext:
+                    b.append(arrow(Wd - P - 7, r[1] - 9, 6.5, th["ink2"]))
+    alt = f'{c["title"]}. {c["what"]} {c["proof"]}'
+    save(f"card-{c['slug']}{'-m' if phone else ''}-{tn}.svg", svg(Wd, H, defs, "".join(b), css, doc, alt))
+
+
 SECTIONS = [
     ("Hey", "the short version."),
-    ("Things i’ve built", "the ones worth opening. the rest are scratch."),
-    ("Right now", "what's on the desk this month."),
-    ("Stack", "what the work gets built with."),
-    ("Numbers", "the graph doesn't lie, it just rounds up."),
+    ("Worth opening", "if you open three things, open these."),
+    ("Everything else", "by domain, in order of how hard i’d defend them."),
 ]
 PILLS = [
-    ("hire", "Hire me", True, False),
+    ("hire", "Email me", True, False),
     ("site", "site", False, True),
-    ("studio", "jacquard studio", False, True),
     ("x", "x", False, True),
     ("linkedin", "linkedin", False, True),
     ("instagram", "instagram", False, True),
@@ -413,11 +497,14 @@ if __name__ == "__main__":
     for tn, th in THEMES.items():
         hero(tn, th)
         for i, (t, n) in enumerate(SECTIONS, 1):
-            slug = band(tn, th, i, len(SECTIONS), t, n, oy=[.1, .3, .5, .2, .4][i - 1])
-            band_m(tn, th, i, len(SECTIONS), t, n, [.1, .3, .5, .2, .4][i - 1], slug)
+            slug = band(tn, th, i, len(SECTIONS), t, n, oy=[.1, .3, .5][i - 1])
+            band_m(tn, th, i, len(SECTIONS), t, n, [.1, .3, .5][i - 1], slug)
         hero_m(tn, th)
         footer_m(tn, th)
         footer(tn, th)
+        for c in CARDS:
+            card(tn, th, c)
+            card(tn, th, c, phone=True)
         for name, label, solid, ext in PILLS:
             widths[name] = pill(tn, th, name, label, solid, ext)
     print("pill widths", widths)
