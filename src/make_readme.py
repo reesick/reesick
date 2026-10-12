@@ -36,9 +36,12 @@ def table(rows):
 
 
 def skill(ids, alt):
-    a = f"https://skillicons.dev/icons?i={ids}&perline=12"
+    # five per line keeps every icon the same size on desktop and phone
+    n = len(ids.split(","))
+    w = min(n, 5) * 48 - 8
+    a = f"https://skillicons.dev/icons?i={ids}&perline=5"
     return (f'<picture><source media="(prefers-color-scheme: dark)" srcset="{a}&theme=dark">'
-            f'<img src="{a}&theme=light" alt="{alt}" height="44"></picture>')
+            f'<img src="{a}&theme=light" alt="{alt}" width="{w}"></picture>')
 
 
 PILLS = [
@@ -50,6 +53,7 @@ PILLS = [
 ]
 
 AGENTS = [
+    ('DAKSHA', 'https://github.com/officialayush23/DAKSHA', 'collab', 'EY techathon semi-finalist. a full commerce platform run by 8 specialist agents, from browsing to returns', 'langgraph · fastapi · gemini · postgres · react', 'a policy gate checks every action before it runs, and anything risky waits for a human'),
     ('jqp', None, 'private', 'instagram carousel publishing and comment to dm automation, on official meta apis only', 'next.js · typescript monorepo · supabase · bullmq · redis · sharp', 'a crash resumable state machine. a publish that dies halfway picks up where it stopped'),
     ('requirements agent', None, 'private', 'code apex 2.0, 2nd place. turns gmail threads and meet transcripts into a requirements doc', 'langgraph · gemini · instructor · gmail api · fastapi · react', 'the meeting ends, the spec is already written'),
     ('Sahayak ops console', 'https://github.com/reesick/paytmhacks', None, 'paytm hackathon. an agent that resolves merchant issues, in hindi, over voice', 'react · vite', 'it does the work but stops at a human approval gate before touching money'),
@@ -66,7 +70,7 @@ MEMORY = [
 ]
 
 FINANCE = [
-    ('COVENANT', 'https://github.com/reesick/COVENANT', None, 'audit grade covenant compliance testing for private credit. EY techathon semi-finalist. research in [ey-research](https://github.com/reesick/ey-research)', 'fastapi · sympy · z3 · docling · faiss · react', 'zero floats. exact rational maths, and every run is hash chained and timestamped'),
+    ('COVENANT', 'https://github.com/reesick/COVENANT', None, 'audit grade covenant compliance testing for private credit. research in [ey-research](https://github.com/reesick/ey-research)', 'fastapi · sympy · z3 · docling · faiss · react', 'zero floats. exact rational maths, and every run is hash chained and timestamped'),
     ('SAR-mvp', 'https://github.com/reesick/SAR-mvp', None, 'anti money laundering. writes the suspicious activity report for an analyst', 'langgraph · fastapi · postgres + pgvector · ollama · react', 'seven agents and a local mistral. nothing leaves the machine'),
     ('ESG greenwashing agent', 'https://github.com/Pragati-1-7/Automated_ESG_Greenwashing_agent', 'collab', 'reads a sustainability report and checks every claim against filings, regulators and news', 'langgraph · groq · pdfplumber · bm25 · mcp · fastapi', 'every claim ends as align, contradict or insufficient, with an audit trail and a 0 to 100 risk score'),
 ]
@@ -104,7 +108,7 @@ i'm **sri**. i build agents, memory systems and audit pipelines. mostly for hack
 
 six hackathon wins · fourteen finals · 451 contributions last year, a third of them private
 
-> keep the ai part invisible so the work gets judged as work.
+> **GOAL:** keep the ai part invisible so the work gets judged as work.
 
 <br>
 
@@ -147,36 +151,25 @@ six hackathon wins · fourteen finals · 451 contributions last year, a third of
 {band("record", "Record. wins and finals, mostly as team kala dhua.")}
 
 - **1st overall**, hacker occupied pune. *an agentic supply chain and distribution system, built in 24 hours.*
-- **domain winner**, ikigai indore, nextgen ai track. *same weekend, different state.*
 - **best innovation**, hackmatrix by pccoe’s aimsa.
-- **top team**, curious parc, vit pune.
+- **top team**, curious parc, vit pune. *came with an internship offer from s2p robotics.*
 - **2nd place**, code apex 2.0. *the requirements agent.*
 - **top 10**, india innovates. *PS-CRM.*
-- **semi-finalist**, EY techathon. *COVENANT.*
+- **semi-finalist**, EY techathon. *DAKSHA, an agentic commerce platform.*
 
 <br>
 
 {band("stack", "Stack. what the work gets built with.")}
 
-**languages**<br>
-{skill("python,ts,js,go,cpp,html,css", "python, typescript, javascript, go, c++, html, css")}
-
-**web, backend & apps**<br>
-{skill("react,nextjs,vite,nodejs,fastapi,flask,tailwind,electron", "react, next.js, vite, node, fastapi, flask, tailwind, electron")}
-
-**data**<br>
-{skill("supabase,postgres,redis,sqlite,prisma", "supabase, postgres, redis, sqlite, prisma")}
-
-**ml & vision**<br>
-{skill("pytorch,sklearn,opencv", "pytorch, scikit-learn, opencv")}
-
-**llms & agents**<br>
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/stack-ai-green.svg"><img src="assets/stack-ai-blue.svg" alt="langchain, ollama, gemini, claude, openai, llama, hugging face, onnx" height="44"></picture>
-
-<sub>plus langgraph, crewai, faiss, chroma, kuzu, pgvector, lightgbm, sentence transformers, mediapipe and onnx runtime, which don't have logos here.</sub>
-
-**cloud & tools**<br>
-{skill("aws,docker,vercel,cloudflare,git,github,githubactions,vscode,postman", "aws, docker, vercel, cloudflare, git, github, github actions, vs code, postman")}
+<table>
+<tr><td><b>languages</b></td><td>{skill("python,ts,js,go,cpp,html,css", "python, typescript, javascript, go, c++, html, css")}</td></tr>
+<tr><td><b>web &amp; apps</b></td><td>{skill("react,nextjs,vite,nodejs,fastapi,flask,tailwind,electron", "react, next.js, vite, node, fastapi, flask, tailwind, electron")}</td></tr>
+<tr><td><b>data</b></td><td>{skill("supabase,postgres,redis,sqlite,prisma", "supabase, postgres, redis, sqlite, prisma")}</td></tr>
+<tr><td><b>ml &amp; vision</b></td><td>{skill("pytorch,sklearn,opencv", "pytorch, scikit-learn, opencv")}</td></tr>
+<tr><td><b>llms &amp; agents</b></td><td><picture><source media="(prefers-color-scheme: dark)" srcset="assets/stack-ai-green.svg"><img src="assets/stack-ai-blue.svg" alt="langchain, ollama, gemini, claude, openai, llama, hugging face, onnx" width="232"></picture></td></tr>
+<tr><td><b>cloud &amp; tools</b></td><td>{skill("aws,docker,vercel,cloudflare,git,github,githubactions,vscode,postman", "aws, docker, vercel, cloudflare, git, github, github actions, vs code, postman")}</td></tr>
+<tr><td><b>no logo, still used</b></td><td>langgraph · crewai · faiss · chroma · kuzu · pgvector · lightgbm · sentence transformers · mediapipe · onnx runtime</td></tr>
+</table>
 
 <br>
 

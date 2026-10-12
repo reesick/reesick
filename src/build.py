@@ -215,7 +215,7 @@ def hero(tn, th):
     # lede
     b.append(doc.text(PAD, 254, 21, [t("creative director who codes. i build "), hi("agents"), t(", "), hi("pipelines")], th["ink2"]))
     b.append(doc.text(PAD, 290, 21, [t("and the occasional app that actually "), hi("ships"), t(".")], th["ink2"]))
-    b.append(doc.text(PAD, 332, 21, [t("b.tech cse (ai/ml) at vit pune. mostly shipping at 2am.")], th["ink3"]))
+    b.append(doc.text(PAD, 332, 21, [t("b.tech cse (ai) at vit pune. mostly shipping at 2am.")], th["ink3"]))
     # toolbar rule
     b.append(f'<line x1="{PAD}" y1="368.5" x2="{W - PAD}" y2="368.5" stroke="{th["rule"]}" stroke-width="1"/>')
     # right now, cycling
@@ -253,7 +253,6 @@ def band(tn, th, idx, total, title, note, oy):
     b = [bg]
     b.append(f'<g filter="url(#sh)">' + doc.text(PAD - 8, 76, 48, [doc.run(title, "s")], th["ink"], extra=' letter-spacing="-.6"') + '</g>')
     b.append(doc.text(PAD - 8, 108, 19, [doc.run(note, "si")], th["ink3"]))
-    b.append(doc.text(W - PAD + 8, 40, 13, [doc.run(f"{idx:02d}", "m", th["ink2"]), doc.run(f" / {total:02d}", "t")], th["ink3"], anchor="end", extra=' class="num" letter-spacing=".3"'))
     slug = title.lower().replace(" ", "-").replace("'", "").replace("’", "")
     save(f"sec-{slug}-{tn}.svg", svg(W, H, defs, "".join(b), css, doc, f"{title}. {note}"))
     return slug
@@ -342,7 +341,7 @@ def hero_m(tn, th):
     fit([("occasional app that actually .", "t", 18), ("ships", "si", 20.9)], WM - 2 * PM, "lede3")
     for y, r in L:
         b.append(doc.text(PM, y, 18, r, th["ink2"]))
-    b.append(doc.text(PM, 374, 16.5, [t("b.tech cse (ai/ml) at vit pune.")], th["ink3"]))
+    b.append(doc.text(PM, 374, 16.5, [t("b.tech cse (ai) at vit pune.")], th["ink3"]))
     b.append(doc.text(PM, 399, 16.5, [t("mostly shipping at 2am.")], th["ink3"]))
     b.append(f'<line x1="{PM}" y1="430.5" x2="{WM - PM}" y2="430.5" stroke="{th["rule"]}"/>')
     b.append(doc.text(PM, 466, 12.5, [t("on record")], th["ink3"], extra=' letter-spacing=".2"'))
@@ -369,8 +368,7 @@ def band_m(tn, th, idx, total, title, note, oy, slug):
     fit([(note, "si", 16)], WM - 2 * PM, note)
     b = [bg,
          f'<g filter="url(#sh)">' + doc.text(PM, 64, 38, [doc.run(title, "s")], th["ink"], extra=' letter-spacing="-.5"') + '</g>',
-         doc.text(PM, 92, 16, [doc.run(note, "si")], th["ink3"]),
-         doc.text(WM - PM, 34, 12, [doc.run(f"{idx:02d}", "m", th["ink2"]), doc.run(f" / {total:02d}", "t")], th["ink3"], anchor="end", extra=' class="num"')]
+         doc.text(PM, 92, 16, [doc.run(note, "si")], th["ink3"])]
     save(f"sec-{slug}-m-{tn}.svg", svg(WM, H, defs, "".join(b), css, doc, f"{title}. {note}"))
 
 
@@ -486,9 +484,12 @@ import json as _json
 
 def ai_row():
     logos = _json.load(open(os.path.join(HERE, "logos.json")))
-    T, G = 256, 44
+    T, G, PER = 256, 44, 5   # same tile, gap and wrap as skillicons with perline=5
     n = len(logos)
-    Wr = n * (T + G) - G
+    cols = min(n, PER)
+    rows = -(-n // PER)
+    Wr = cols * (T + G) - G
+    Hr = rows * (T + G) - G
 
     def lum(h):
         r, g, bb = (int(h[i:i + 2], 16) / 255 for i in (0, 2, 4))
@@ -497,18 +498,16 @@ def ai_row():
     for tn, bg in (("blue", "#F4F2ED"), ("green", "#242938")):
         tiles = []
         for i, (name, d) in enumerate(logos.items()):
-            hx = d["hex"]
-            fill = "#" + hx
-            if tn == "green" and lum(hx) < .25:
+            fill = "#" + d["hex"]
+            if tn == "green" and lum(d["hex"]) < .25:
                 fill = "#FFFFFF"
-            if tn == "blue" and lum(hx) > .8:
-                fill = "#" + hx
-            x = i * (T + G)
-            tiles.append(f'<g transform="translate({x} 0)"><title>{name}</title><rect width="{T}" height="{T}" rx="60" fill="{bg}"/>'
+            x, y = (i % PER) * (T + G), (i // PER) * (T + G)
+            tiles.append(f'<g transform="translate({x} {y})"><title>{name}</title><rect width="{T}" height="{T}" rx="60" fill="{bg}"/>'
                          f'<path transform="translate(53 53) scale(6.25)" fill="{fill}" d="{d["path"]}"/></g>')
-        s = (f'<svg xmlns="http://www.w3.org/2000/svg" width="{Wr}" height="{T}" viewBox="0 0 {Wr} {T}" role="img" '
+        s = (f'<svg xmlns="http://www.w3.org/2000/svg" width="{Wr}" height="{Hr}" viewBox="0 0 {Wr} {Hr}" role="img" '
              f'aria-label="{", ".join(logos)}">' + "".join(tiles) + "</svg>")
         save(f"stack-ai-{tn}.svg", s)
+
 
 SECTIONS = [
     ("Things i’ve built", "the ones worth opening. the rest are scratch."),

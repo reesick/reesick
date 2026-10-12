@@ -6,7 +6,7 @@ i'm **sri**. i build agents, memory systems and audit pipelines. mostly for hack
 
 six hackathon wins · fourteen finals · 451 contributions last year, a third of them private
 
-> keep the ai part invisible so the work gets judged as work.
+> **GOAL:** keep the ai part invisible so the work gets judged as work.
 
 <br>
 
@@ -17,6 +17,7 @@ six hackathon wins · fourteen finals · 451 contributions last year, a third of
 
 | what | with what | the twist |
 | --- | --- | --- |
+| **[DAKSHA](https://github.com/officialayush23/DAKSHA)** `collab`<br>EY techathon semi-finalist. a full commerce platform run by 8 specialist agents, from browsing to returns | langgraph · fastapi · gemini · postgres · react | *a policy gate checks every action before it runs, and anything risky waits for a human* |
 | **jqp** `private`<br>instagram carousel publishing and comment to dm automation, on official meta apis only | next.js · typescript monorepo · supabase · bullmq · redis · sharp | *a crash resumable state machine. a publish that dies halfway picks up where it stopped* |
 | **requirements agent** `private`<br>code apex 2.0, 2nd place. turns gmail threads and meet transcripts into a requirements doc | langgraph · gemini · instructor · gmail api · fastapi · react | *the meeting ends, the spec is already written* |
 | **[Sahayak ops console](https://github.com/reesick/paytmhacks)**<br>paytm hackathon. an agent that resolves merchant issues, in hindi, over voice | react · vite | *it does the work but stops at a human approval gate before touching money* |
@@ -39,7 +40,7 @@ six hackathon wins · fourteen finals · 451 contributions last year, a third of
 
 | what | with what | the twist |
 | --- | --- | --- |
-| **[COVENANT](https://github.com/reesick/COVENANT)**<br>audit grade covenant compliance testing for private credit. EY techathon semi-finalist. research in [ey-research](https://github.com/reesick/ey-research) | fastapi · sympy · z3 · docling · faiss · react | *zero floats. exact rational maths, and every run is hash chained and timestamped* |
+| **[COVENANT](https://github.com/reesick/COVENANT)**<br>audit grade covenant compliance testing for private credit. research in [ey-research](https://github.com/reesick/ey-research) | fastapi · sympy · z3 · docling · faiss · react | *zero floats. exact rational maths, and every run is hash chained and timestamped* |
 | **[SAR-mvp](https://github.com/reesick/SAR-mvp)**<br>anti money laundering. writes the suspicious activity report for an analyst | langgraph · fastapi · postgres + pgvector · ollama · react | *seven agents and a local mistral. nothing leaves the machine* |
 | **[ESG greenwashing agent](https://github.com/Pragati-1-7/Automated_ESG_Greenwashing_agent)** `collab`<br>reads a sustainability report and checks every claim against filings, regulators and news | langgraph · groq · pdfplumber · bm25 · mcp · fastapi | *every claim ends as align, contradict or insufficient, with an audit trail and a 0 to 100 risk score* |
 
@@ -83,36 +84,25 @@ six hackathon wins · fourteen finals · 451 contributions last year, a third of
 <picture><source media="(prefers-color-scheme: dark) and (max-width: 600px)" srcset="assets/sec-record-m-green.svg"><source media="(max-width: 600px)" srcset="assets/sec-record-m-blue.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/sec-record-green.svg"><img src="assets/sec-record-blue.svg" alt="Record. wins and finals, mostly as team kala dhua." width="100%"></picture>
 
 - **1st overall**, hacker occupied pune. *an agentic supply chain and distribution system, built in 24 hours.*
-- **domain winner**, ikigai indore, nextgen ai track. *same weekend, different state.*
 - **best innovation**, hackmatrix by pccoe’s aimsa.
-- **top team**, curious parc, vit pune.
+- **top team**, curious parc, vit pune. *came with an internship offer from s2p robotics.*
 - **2nd place**, code apex 2.0. *the requirements agent.*
 - **top 10**, india innovates. *PS-CRM.*
-- **semi-finalist**, EY techathon. *COVENANT.*
+- **semi-finalist**, EY techathon. *DAKSHA, an agentic commerce platform.*
 
 <br>
 
 <picture><source media="(prefers-color-scheme: dark) and (max-width: 600px)" srcset="assets/sec-stack-m-green.svg"><source media="(max-width: 600px)" srcset="assets/sec-stack-m-blue.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/sec-stack-green.svg"><img src="assets/sec-stack-blue.svg" alt="Stack. what the work gets built with." width="100%"></picture>
 
-**languages**<br>
-<picture><source media="(prefers-color-scheme: dark)" srcset="https://skillicons.dev/icons?i=python,ts,js,go,cpp,html,css&perline=12&theme=dark"><img src="https://skillicons.dev/icons?i=python,ts,js,go,cpp,html,css&perline=12&theme=light" alt="python, typescript, javascript, go, c++, html, css" height="44"></picture>
-
-**web, backend & apps**<br>
-<picture><source media="(prefers-color-scheme: dark)" srcset="https://skillicons.dev/icons?i=react,nextjs,vite,nodejs,fastapi,flask,tailwind,electron&perline=12&theme=dark"><img src="https://skillicons.dev/icons?i=react,nextjs,vite,nodejs,fastapi,flask,tailwind,electron&perline=12&theme=light" alt="react, next.js, vite, node, fastapi, flask, tailwind, electron" height="44"></picture>
-
-**data**<br>
-<picture><source media="(prefers-color-scheme: dark)" srcset="https://skillicons.dev/icons?i=supabase,postgres,redis,sqlite,prisma&perline=12&theme=dark"><img src="https://skillicons.dev/icons?i=supabase,postgres,redis,sqlite,prisma&perline=12&theme=light" alt="supabase, postgres, redis, sqlite, prisma" height="44"></picture>
-
-**ml & vision**<br>
-<picture><source media="(prefers-color-scheme: dark)" srcset="https://skillicons.dev/icons?i=pytorch,sklearn,opencv&perline=12&theme=dark"><img src="https://skillicons.dev/icons?i=pytorch,sklearn,opencv&perline=12&theme=light" alt="pytorch, scikit-learn, opencv" height="44"></picture>
-
-**llms & agents**<br>
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/stack-ai-green.svg"><img src="assets/stack-ai-blue.svg" alt="langchain, ollama, gemini, claude, openai, llama, hugging face, onnx" height="44"></picture>
-
-<sub>plus langgraph, crewai, faiss, chroma, kuzu, pgvector, lightgbm, sentence transformers, mediapipe and onnx runtime, which don't have logos here.</sub>
-
-**cloud & tools**<br>
-<picture><source media="(prefers-color-scheme: dark)" srcset="https://skillicons.dev/icons?i=aws,docker,vercel,cloudflare,git,github,githubactions,vscode,postman&perline=12&theme=dark"><img src="https://skillicons.dev/icons?i=aws,docker,vercel,cloudflare,git,github,githubactions,vscode,postman&perline=12&theme=light" alt="aws, docker, vercel, cloudflare, git, github, github actions, vs code, postman" height="44"></picture>
+<table>
+<tr><td><b>languages</b></td><td><picture><source media="(prefers-color-scheme: dark)" srcset="https://skillicons.dev/icons?i=python,ts,js,go,cpp,html,css&perline=5&theme=dark"><img src="https://skillicons.dev/icons?i=python,ts,js,go,cpp,html,css&perline=5&theme=light" alt="python, typescript, javascript, go, c++, html, css" width="232"></picture></td></tr>
+<tr><td><b>web &amp; apps</b></td><td><picture><source media="(prefers-color-scheme: dark)" srcset="https://skillicons.dev/icons?i=react,nextjs,vite,nodejs,fastapi,flask,tailwind,electron&perline=5&theme=dark"><img src="https://skillicons.dev/icons?i=react,nextjs,vite,nodejs,fastapi,flask,tailwind,electron&perline=5&theme=light" alt="react, next.js, vite, node, fastapi, flask, tailwind, electron" width="232"></picture></td></tr>
+<tr><td><b>data</b></td><td><picture><source media="(prefers-color-scheme: dark)" srcset="https://skillicons.dev/icons?i=supabase,postgres,redis,sqlite,prisma&perline=5&theme=dark"><img src="https://skillicons.dev/icons?i=supabase,postgres,redis,sqlite,prisma&perline=5&theme=light" alt="supabase, postgres, redis, sqlite, prisma" width="232"></picture></td></tr>
+<tr><td><b>ml &amp; vision</b></td><td><picture><source media="(prefers-color-scheme: dark)" srcset="https://skillicons.dev/icons?i=pytorch,sklearn,opencv&perline=5&theme=dark"><img src="https://skillicons.dev/icons?i=pytorch,sklearn,opencv&perline=5&theme=light" alt="pytorch, scikit-learn, opencv" width="136"></picture></td></tr>
+<tr><td><b>llms &amp; agents</b></td><td><picture><source media="(prefers-color-scheme: dark)" srcset="assets/stack-ai-green.svg"><img src="assets/stack-ai-blue.svg" alt="langchain, ollama, gemini, claude, openai, llama, hugging face, onnx" width="232"></picture></td></tr>
+<tr><td><b>cloud &amp; tools</b></td><td><picture><source media="(prefers-color-scheme: dark)" srcset="https://skillicons.dev/icons?i=aws,docker,vercel,cloudflare,git,github,githubactions,vscode,postman&perline=5&theme=dark"><img src="https://skillicons.dev/icons?i=aws,docker,vercel,cloudflare,git,github,githubactions,vscode,postman&perline=5&theme=light" alt="aws, docker, vercel, cloudflare, git, github, github actions, vs code, postman" width="232"></picture></td></tr>
+<tr><td><b>no logo, still used</b></td><td>langgraph · crewai · faiss · chroma · kuzu · pgvector · lightgbm · sentence transformers · mediapipe · onnx runtime</td></tr>
+</table>
 
 <br>
 
