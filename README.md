@@ -20,59 +20,43 @@ python and typescript mostly. go and kotlin when the problem asks for it.
 
 <picture><source media="(prefers-color-scheme: dark) and (max-width: 600px)" srcset="assets/sec-worth-opening-m-green.svg"><source media="(max-width: 600px)" srcset="assets/sec-worth-opening-m-blue.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/sec-worth-opening-green.svg"><img src="assets/sec-worth-opening-blue.svg" alt="Worth opening. if you open three things, open these." width="100%"></picture>
 
-<a href="https://github.com/reesick/COVENANT"><picture><source media="(prefers-color-scheme: dark) and (max-width: 600px)" srcset="assets/card-covenant-m-green.svg"><source media="(max-width: 600px)" srcset="assets/card-covenant-m-blue.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/card-covenant-green.svg"><img src="assets/card-covenant-blue.svg" alt="COVENANT. audit grade covenant compliance testing for private credit." width="100%"></picture></a>
-
-<sub>the research and golden test set behind it: [ey-research](https://github.com/reesick/ey-research)</sub>
-
-<a href="https://github.com/reesick/memos"><picture><source media="(prefers-color-scheme: dark) and (max-width: 600px)" srcset="assets/card-memoryos-m-green.svg"><source media="(max-width: 600px)" srcset="assets/card-memoryos-m-blue.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/card-memoryos-green.svg"><img src="assets/card-memoryos-blue.svg" alt="MemoryOS. open memory middleware for llm apps." width="100%"></picture></a>
-
-<sub>and a local first dashboard for it: [memos-v2](https://github.com/reesick/memos-v2)</sub>
-
 <picture><source media="(prefers-color-scheme: dark) and (max-width: 600px)" srcset="assets/card-jqp-m-green.svg"><source media="(max-width: 600px)" srcset="assets/card-jqp-m-blue.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/card-jqp-green.svg"><img src="assets/card-jqp-blue.svg" alt="jqp. instagram publishing and comment to dm automation on official meta apis. private." width="100%"></picture>
+
+<picture><source media="(prefers-color-scheme: dark) and (max-width: 600px)" srcset="assets/card-ml-challenge-m-green.svg"><source media="(max-width: 600px)" srcset="assets/card-ml-challenge-m-blue.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/card-ml-challenge-green.svg"><img src="assets/card-ml-challenge-blue.svg" alt="ml-challenge. amazon ml challenge 2026, business entity resolution. private." width="100%"></picture>
+
+<a href="https://github.com/reesick/pscrm"><picture><source media="(prefers-color-scheme: dark) and (max-width: 600px)" srcset="assets/card-pscrm-m-green.svg"><source media="(max-width: 600px)" srcset="assets/card-pscrm-m-blue.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/card-pscrm-green.svg"><img src="assets/card-pscrm-blue.svg" alt="PS-CRM. civic intelligence layer for delhi mcd. top 10 at india innovates." width="100%"></picture></a>
 
 <br>
 
 <picture><source media="(prefers-color-scheme: dark) and (max-width: 600px)" srcset="assets/sec-everything-else-m-green.svg"><source media="(max-width: 600px)" srcset="assets/sec-everything-else-m-blue.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/sec-everything-else-green.svg"><img src="assets/sec-everything-else-blue.svg" alt="Everything else. by domain." width="100%"></picture>
 
-### agents & retrieval
-*things that decide, route, and keep running when i log off.*
+### agents & automation
+*things that decide, and keep running when i log off.*
 
 | what | with what | the twist |
 | --- | --- | --- |
+| **requirements agent** `private`<br>turns gmail threads and meet transcripts into a requirements doc | langgraph · gemini · supabase | *the meeting ends, the spec is already written* |
 | **[ABTalks agent](https://github.com/reesick/abtalkshackathon)**<br>finds ai/ml topics, judges them against a persona, writes and posts | python · fastapi · flora | *ran 48 hours unattended. nobody touched it* |
-| **[Excel Bot](https://github.com/reesick/Excel-bot)**<br>telegram bot. send any messy spreadsheet, get an excel dashboard and a deck back | python · claude files api · code execution | *claude is the analyst. nobody tells it which columns matter* |
-| **edi-5** `private`<br>multi domain rag assistant. started on cricket, now does finance and general knowledge too | fastapi · groq · chroma · react | *it routes before it retrieves. live, historical and analytical questions each get their own path* |
-| **requirements agent** `private`<br>turns gmail threads and meet transcripts into a requirements doc | langgraph · gemini 2.5 flash · supabase pgvector | *the meeting ends, the spec is already written* |
+| **ClipFarm** `private`<br>repost pipeline for clipping programs. reframes, brands, de-dupes and checks a clip before it goes up | python · ffmpeg · flask | *fully offline, no accounts, no api keys. it tells you if the post will get approved* |
 
-### finance & compliance
-*where a rounding error is a wrong answer.*
+### vision & forecasting
+*faces, threats, and people’s futures. no pressure.*
 
 | what | with what | the twist |
 | --- | --- | --- |
-| **[SAR-mvp](https://github.com/reesick/SAR-mvp)**<br>anti money laundering: writes the suspicious activity report for an analyst | langgraph · fastapi · pgvector · ollama | *seven agents and a local mistral. nothing leaves the machine* |
-| **[ESG greenwashing agent](https://github.com/Pragati-1-7/Automated_ESG_Greenwashing_agent)** `collab`<br>with pragati. reads a sustainability report and checks every claim against filings, regulators and news | python · agents · layout aware pdf parsing | *every claim ends as align, contradict or insufficient, with an audit trail and a 0 to 100 risk score* |
-| **ml-challenge** `private`<br>amazon ml challenge 2026. business entity resolution across three sources, three countries | python · blocking · pruner + matcher | *0.972 on local validation, 0.885 on the leaderboard. hunting the gap* |
-
-### civic, health & security
-*maps, faces and threat graphs.*
-
-| what | with what | the twist |
-| --- | --- | --- |
-| **[drone swarm](https://github.com/tusharsingh-spring/drone_swarm)** `collab`<br>with tushar. a flood and fire response simulator for pune and pcmc | python · websockets · 3d map | *up to 100 modelled drones working alongside real pcmc ground units* |
-| **[PS-CRM](https://github.com/reesick/pscrm)**<br>civic grievance crm for delhi mcd, built as team blackhaze | fastapi · next.js · langgraph · gemini · postgis | *every complaint is a point on a map, and an agent decides where it goes* |
-| **[CLINDerm](https://github.com/reesick/clinderm)**<br>three face photos in, an annotated skin health report out | yunet · mediapipe · segformer · yolov8 | *four vision models, all running locally on a laptop 4050* |
+| **[face detection, deployed](https://github.com/reesick/nhai)**<br>scrfd face detection packaged to run anywhere, with a quantisation study | pytorch · onnx runtime · scrfd | *quantised it to int8, measured it, shipped fp32 anyway. 30 fps on a plain cpu* |
 | **[threat forecasting](https://github.com/reesick/cybersec-ind)**<br>forecasts cyber threats and the tech that counters them | python · bayesian gnn · nvd · gdelt | *a 2025 paper rebuilt end to end, with honest fallbacks when the apis say no* |
+| **[career recommender](https://github.com/reesick/sihreccadv)**<br>smart india hackathon. a personality test goes in, careers come out | fastapi · faiss · sentence transformers · supabase | *big five and riasec scores turned into a semantic search over careers* |
 
-### learning & small fixes
-*software that teaches back, and one that fixes college.*
+### memory & learning
+*software that remembers, and software that teaches back.*
 
 | what | with what | the twist |
 | --- | --- | --- |
-| **[Avinya](https://github.com/reesick/avinya)**<br>personalised video learning with a hybrid recommender | react · fastapi · supabase · lightfm | *three recommenders blended: content, collaborative and knowledge based* |
+| **[memos v2](https://github.com/reesick/memos-v2)**<br>local first memory workspace for llm apps, with a dashboard to browse what it remembers | typescript · next.js · sqlite | *runs on synthetic embeddings, so you can try it without a single api key* |
 | **[algo visualiser](https://github.com/reesick/edai-3-f1)**<br>algorithm visualiser with an ai tutor that watches how you learn | react · go · python · gemini | *pause too long and it slows down. hit replay and it gets technical* |
-| **Better VOLP** `private`<br>a cleaner client for my college's classroom platform | next.js · prisma · cron | *emails you 48 hours before an assignment is due. the original never did* |
 
-<sub>`private` means named, not linked. ask and i'll walk you through it. `collab` means a team repo i build in.</sub>
+<sub>`private` means named, not linked. ask and i'll walk you through it.</sub>
 
 <br>
 

@@ -44,68 +44,42 @@ PILLS = [
 ]
 
 AGENTS = [
+    ("requirements agent", None, "private",
+     "turns gmail threads and meet transcripts into a requirements doc",
+     "langgraph · gemini · supabase",
+     "the meeting ends, the spec is already written"),
     ("ABTalks agent", f"{GH}/abtalkshackathon", None,
      "finds ai/ml topics, judges them against a persona, writes and posts",
      "python · fastapi · flora",
      "ran 48 hours unattended. nobody touched it"),
-    ("Excel Bot", f"{GH}/Excel-bot", None,
-     "telegram bot. send any messy spreadsheet, get an excel dashboard and a deck back",
-     "python · claude files api · code execution",
-     "claude is the analyst. nobody tells it which columns matter"),
-    ("edi-5", None, "private",
-     "multi domain rag assistant. started on cricket, now does finance and general knowledge too",
-     "fastapi · groq · chroma · react",
-     "it routes before it retrieves. live, historical and analytical questions each get their own path"),
-    ("requirements agent", None, "private",
-     "turns gmail threads and meet transcripts into a requirements doc",
-     "langgraph · gemini 2.5 flash · supabase pgvector",
-     "the meeting ends, the spec is already written"),
+    ("ClipFarm", None, "private",
+     "repost pipeline for clipping programs. reframes, brands, de-dupes and checks a clip before it goes up",
+     "python · ffmpeg · flask",
+     "fully offline, no accounts, no api keys. it tells you if the post will get approved"),
 ]
-FINANCE = [
-    ("SAR-mvp", f"{GH}/SAR-mvp", None,
-     "anti money laundering: writes the suspicious activity report for an analyst",
-     "langgraph · fastapi · pgvector · ollama",
-     "seven agents and a local mistral. nothing leaves the machine"),
-    ("ESG greenwashing agent", "https://github.com/Pragati-1-7/Automated_ESG_Greenwashing_agent", "collab",
-     "with pragati. reads a sustainability report and checks every claim against filings, regulators and news",
-     "python · agents · layout aware pdf parsing",
-     "every claim ends as align, contradict or insufficient, with an audit trail and a 0 to 100 risk score"),
-    ("ml-challenge", None, "private",
-     "amazon ml challenge 2026. business entity resolution across three sources, three countries",
-     "python · blocking · pruner + matcher",
-     "0.972 on local validation, 0.885 on the leaderboard. hunting the gap"),
-]
-CIVIC = [
-    ("drone swarm", "https://github.com/tusharsingh-spring/drone_swarm", "collab",
-     "with tushar. a flood and fire response simulator for pune and pcmc",
-     "python · websockets · 3d map",
-     "up to 100 modelled drones working alongside real pcmc ground units"),
-    ("PS-CRM", f"{GH}/pscrm", None,
-     "civic grievance crm for delhi mcd, built as team blackhaze",
-     "fastapi · next.js · langgraph · gemini · postgis",
-     "every complaint is a point on a map, and an agent decides where it goes"),
-    ("CLINDerm", f"{GH}/clinderm", None,
-     "three face photos in, an annotated skin health report out",
-     "yunet · mediapipe · segformer · yolov8",
-     "four vision models, all running locally on a laptop 4050"),
+VISION = [
+    ("face detection, deployed", f"{GH}/nhai", None,
+     "scrfd face detection packaged to run anywhere, with a quantisation study",
+     "pytorch · onnx runtime · scrfd",
+     "quantised it to int8, measured it, shipped fp32 anyway. 30 fps on a plain cpu"),
     ("threat forecasting", f"{GH}/cybersec-ind", None,
      "forecasts cyber threats and the tech that counters them",
      "python · bayesian gnn · nvd · gdelt",
      "a 2025 paper rebuilt end to end, with honest fallbacks when the apis say no"),
+    ("career recommender", f"{GH}/sihreccadv", None,
+     "smart india hackathon. a personality test goes in, careers come out",
+     "fastapi · faiss · sentence transformers · supabase",
+     "big five and riasec scores turned into a semantic search over careers"),
 ]
 LEARN = [
-    ("Avinya", f"{GH}/avinya", None,
-     "personalised video learning with a hybrid recommender",
-     "react · fastapi · supabase · lightfm",
-     "three recommenders blended: content, collaborative and knowledge based"),
+    ("memos v2", f"{GH}/memos-v2", None,
+     "local first memory workspace for llm apps, with a dashboard to browse what it remembers",
+     "typescript · next.js · sqlite",
+     "runs on synthetic embeddings, so you can try it without a single api key"),
     ("algo visualiser", f"{GH}/edai-3-f1", None,
      "algorithm visualiser with an ai tutor that watches how you learn",
      "react · go · python · gemini",
      "pause too long and it slows down. hit replay and it gets technical"),
-    ("Better VOLP", None, "private",
-     "a cleaner client for my college's classroom platform",
-     "next.js · prisma · cron",
-     "emails you 48 hours before an assignment is due. the original never did"),
 ]
 
 md = f"""{pic("hero", "Shreeviraj Matale. creative director who codes.", width="100%", href="https://shreeviraj.studio", phone=True)}
@@ -130,41 +104,32 @@ python and typescript mostly. go and kotlin when the problem asks for it.
 
 {band("worth-opening", "Worth opening. if you open three things, open these.")}
 
-{card("covenant", "COVENANT. audit grade covenant compliance testing for private credit.", f"{GH}/COVENANT")}
-
-<sub>the research and golden test set behind it: [ey-research]({GH}/ey-research)</sub>
-
-{card("memoryos", "MemoryOS. open memory middleware for llm apps.", f"{GH}/memos")}
-
-<sub>and a local first dashboard for it: [memos-v2]({GH}/memos-v2)</sub>
-
 {card("jqp", "jqp. instagram publishing and comment to dm automation on official meta apis. private.")}
+
+{card("ml-challenge", "ml-challenge. amazon ml challenge 2026, business entity resolution. private.")}
+
+{card("pscrm", "PS-CRM. civic intelligence layer for delhi mcd. top 10 at india innovates.", f"{GH}/pscrm")}
 
 <br>
 
 {band("everything-else", "Everything else. by domain.")}
 
-### agents & retrieval
-*things that decide, route, and keep running when i log off.*
+### agents & automation
+*things that decide, and keep running when i log off.*
 
 {table(AGENTS)}
 
-### finance & compliance
-*where a rounding error is a wrong answer.*
+### vision & forecasting
+*faces, threats, and people’s futures. no pressure.*
 
-{table(FINANCE)}
+{table(VISION)}
 
-### civic, health & security
-*maps, faces and threat graphs.*
-
-{table(CIVIC)}
-
-### learning & small fixes
-*software that teaches back, and one that fixes college.*
+### memory & learning
+*software that remembers, and software that teaches back.*
 
 {table(LEARN)}
 
-<sub>`private` means named, not linked. ask and i'll walk you through it. `collab` means a team repo i build in.</sub>
+<sub>`private` means named, not linked. ask and i'll walk you through it.</sub>
 
 <br>
 

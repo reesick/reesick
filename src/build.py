@@ -408,18 +408,18 @@ def wrap(text, f, size, limit):
 
 
 CARDS = [
-    dict(slug="covenant", n="01", title="COVENANT", tag="EY techathon, semi-finalist",
-         what="audit grade covenant compliance testing for private credit.",
-         proof="zero floats. exact rational maths, and every run is hash chained and timestamped.",
-         stack="python · sympy · faiss · pdfplumber · fastapi", foot="open repo"),
-    dict(slug="memoryos", n="02", title="MemoryOS", tag="most forked repo",
-         what="open memory middleware for llm apps. put it in front of any chatbot.",
-         proof="extracts facts, settles conflicts, recalls across three stores at once.",
-         stack="python · knowledge graph · hybrid retrieval", foot="open repo"),
-    dict(slug="jqp", n="03", title="jqp", tag="private, 46 commits",
+    dict(slug="jqp", n="01", title="jqp", tag="private, 46 commits",
          what="instagram carousel publishing and comment to dm automation, on official meta apis only.",
          proof="a crash resumable state machine. a publish that dies halfway picks up where it stopped.",
          stack="typescript · supabase · bullmq · redis · meta graph api", foot="private, ask for a walkthrough"),
+    dict(slug="ml-challenge", n="02", title="ml-challenge", tag="amazon ml challenge 2026",
+         what="business entity resolution. match every business across three messy sources, in three countries.",
+         proof="0.972 on local validation, 0.885 on the leaderboard. now hunting the gap.",
+         stack="python · candidate pruner + matcher · macro f0.5", foot="private, ask for a walkthrough"),
+    dict(slug="pscrm", n="03", title="PS-CRM", tag="india innovates, top 10",
+         what="a civic intelligence layer on top of delhi\u2019s grievance systems. built as team blackhaze.",
+         proof="every complaint becomes a signal about a real asset: a drain, a streetlight, a road.",
+         stack="fastapi · next.js · langgraph · gemini 2.5 · supabase", foot="open repo"),
 ]
 
 
