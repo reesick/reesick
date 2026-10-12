@@ -197,10 +197,23 @@ W = 880
 PAD = 52
 
 
+
+def swap_field(Wd, H, tn, uid, **kw):
+    """both skins stacked; the top one fades in and out on a slow loop, like the site's
+    blue/green switch but on its own. the light-mode file starts blue, the dark one green."""
+    other = "green" if tn == "blue" else "blue"
+    d1, bg1, css = field(Wd, H, THEMES[tn], uid=uid + "a", **kw)
+    d2, bg2, _ = field(Wd, H, THEMES[other], uid=uid + "b", **kw)
+    css += ("@keyframes swap{0%,38%{opacity:0}50%,88%{opacity:1}100%{opacity:0}}"
+            ".swap{opacity:0;animation:swap 22s cubic-bezier(.76,0,.24,1) infinite}"
+            "@media (prefers-reduced-motion:reduce){.swap{animation:none}}")
+    return d1 + d2, bg1 + f'<g class="swap">{bg2}</g>', css
+
+
 def hero(tn, th):
     H = 468
     doc = Doc()
-    defs, bg, css = field(W, H, th, oy=0, uid="h")
+    defs, bg, css = swap_field(W, H, tn, "h", oy=0)
     hi = lambda s: doc.run(s, "si", th["accent"], ' font-size="1.16em"')
     t = lambda s, c=None: doc.run(s, "t", c)
     b = [bg]
@@ -318,7 +331,7 @@ def fit(parts, limit, label):
 def hero_m(tn, th):
     H = 548
     doc = Doc()
-    defs, bg, css = field(WM, H, th, oy=0, uid="hm", vh=WM * 1.25)
+    defs, bg, css = swap_field(WM, H, tn, "hm", oy=0, vh=WM * 1.25)
     hi = lambda s: doc.run(s, "si", th["accent"], ' font-size="1.16em"')
     t = lambda s: doc.run(s, "t")
     b = [bg]
