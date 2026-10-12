@@ -478,35 +478,51 @@ def card(tn, th, c, phone=False):
 
 
 
-# ---------- the ai row: logos skillicons doesn't carry, drawn to match its tiles ----------
+# ---------- stack icons: one small brand mark per tool, light and dark ----------
 import json as _json
 
 
-def ai_row():
-    logos = _json.load(open(os.path.join(HERE, "logos.json")))
-    T, G, PER = 256, 44, 5   # same tile, gap and wrap as skillicons with perline=5
-    n = len(logos)
-    cols = min(n, PER)
-    rows = -(-n // PER)
-    Wr = cols * (T + G) - G
-    Hr = rows * (T + G) - G
+def slugify(name):
+    return "".join(c if c.isalnum() else "-" for c in name.lower()).strip("-").replace("--", "-")
+
+
+CHIP_INK = {"": "#1F2328", "-d": "#E6EDF3"}
+PLAIN_TOOLS = ["pgvector", "faiss", "chroma", "kuzu", "lightgbm", "mediapipe", "sentence transformers",
+               "langgraph", "crewai", "mcp"]
+
+
+def stack_icons():
+    """each tool is one chip: brand mark plus name, so a phone can never split them"""
+    icons = _json.load(open(os.path.join(HERE, "icons.json")))
+    os.makedirs(os.path.join(OUT, "chips"), exist_ok=True)
 
     def lum(h):
         r, g, bb = (int(h[i:i + 2], 16) / 255 for i in (0, 2, 4))
         return .2126 * r + .7152 * g + .0722 * bb
 
-    for tn, bg in (("blue", "#F4F2ED"), ("green", "#242938")):
-        tiles = []
-        for i, (name, d) in enumerate(logos.items()):
-            fill = "#" + d["hex"]
-            if tn == "green" and lum(d["hex"]) < .25:
-                fill = "#FFFFFF"
-            x, y = (i % PER) * (T + G), (i // PER) * (T + G)
-            tiles.append(f'<g transform="translate({x} {y})"><title>{name}</title><rect width="{T}" height="{T}" rx="60" fill="{bg}"/>'
-                         f'<path transform="translate(53 53) scale(6.25)" fill="{fill}" d="{d["path"]}"/></g>')
-        s = (f'<svg xmlns="http://www.w3.org/2000/svg" width="{Wr}" height="{Hr}" viewBox="0 0 {Wr} {Hr}" role="img" '
-             f'aria-label="{", ".join(logos)}">' + "".join(tiles) + "</svg>")
-        save(f"stack-ai-{tn}.svg", s)
+    size, H, ico = 14, 20, 14
+    for name in list(icons) + PLAIN_TOOLS:
+        d = icons.get(name)
+        doc = Doc()
+        tw = width(name, "t", size)
+        x0 = (ico + 6) if d else 0
+        Wc = math.ceil(x0 + tw + 1)
+        for suffix, ink in CHIP_INK.items():
+            parts = []
+            if d:
+                hx = d["hex"]
+                if suffix:
+                    fill = "#E6EDF3" if lum(hx) < .3 else "#" + hx
+                else:
+                    fill = "#" + hx if lum(hx) < .75 else "#B8920C"
+                parts.append(f'<path transform="translate(0 {(H - ico) / 2}) scale({ico / 24})" fill="{fill}" d="{d["path"]}"/>')
+            parts.append(doc.text(x0, 15, size, [doc.run(name, "t")], ink))
+            body = "".join(parts)
+            s = (f'<svg xmlns="http://www.w3.org/2000/svg" width="{Wc}" height="{H}" viewBox="0 0 {Wc} {H}" role="img" aria-label="{name}">'
+                 f'<style>{font_css(doc.used)}</style>{body}</svg>')
+            with open(os.path.join(OUT, "chips", f"{slugify(name)}{suffix}.svg"), "w") as fh:
+                fh.write(s)
+    print("chips", len(icons) + len(PLAIN_TOOLS))
 
 
 SECTIONS = [
@@ -534,5 +550,5 @@ if __name__ == "__main__":
         footer(tn, th)
         for name, label, solid, ext in PILLS:
             widths[name] = pill(tn, th, name, label, solid, ext)
-    ai_row()
+    stack_icons()
     print("pill widths", widths)

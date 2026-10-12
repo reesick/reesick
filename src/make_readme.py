@@ -35,6 +35,20 @@ def table(rows):
     return "\n".join(out)
 
 
+def slugify(name):
+    return "".join(c if c.isalnum() else "-" for c in name.lower()).strip("-").replace("--", "-")
+
+
+def stack_row(label, tools, plain=()):
+    # one chip per tool (mark + name drawn together), so they wrap as a unit on a phone
+    chips = []
+    for t in list(tools) + list(plain):
+        s = slugify(t)
+        chips.append(f'<picture><source media="(prefers-color-scheme: dark)" srcset="assets/chips/{s}-d.svg">'
+                     f'<img src="assets/chips/{s}.svg" height="20" alt="{t}"></picture>')
+    return f'<tr><td><b>{label}</b></td><td>' + " &nbsp; ".join(chips) + "</td></tr>"
+
+
 def skill(ids, alt):
     # five per line keeps every icon the same size on desktop and phone
     n = len(ids.split(","))
@@ -162,13 +176,12 @@ six hackathon wins · fourteen finals · 451 contributions last year, a third of
 {band("stack", "Stack. what the work gets built with.")}
 
 <table>
-<tr><td><b>languages</b></td><td>{skill("python,ts,js,go,cpp,html,css", "python, typescript, javascript, go, c++, html, css")}</td></tr>
-<tr><td><b>web &amp; apps</b></td><td>{skill("react,nextjs,vite,nodejs,fastapi,flask,tailwind,electron", "react, next.js, vite, node, fastapi, flask, tailwind, electron")}</td></tr>
-<tr><td><b>data</b></td><td>{skill("supabase,postgres,redis,sqlite,prisma", "supabase, postgres, redis, sqlite, prisma")}</td></tr>
-<tr><td><b>ml &amp; vision</b></td><td>{skill("pytorch,sklearn,opencv", "pytorch, scikit-learn, opencv")}</td></tr>
-<tr><td><b>llms &amp; agents</b></td><td><picture><source media="(prefers-color-scheme: dark)" srcset="assets/stack-ai-green.svg"><img src="assets/stack-ai-blue.svg" alt="langchain, ollama, gemini, claude, openai, llama, hugging face, onnx" width="232"></picture></td></tr>
-<tr><td><b>cloud &amp; tools</b></td><td>{skill("aws,docker,vercel,cloudflare,git,github,githubactions,vscode,postman", "aws, docker, vercel, cloudflare, git, github, github actions, vs code, postman")}</td></tr>
-<tr><td><b>no logo, still used</b></td><td>langgraph · crewai · faiss · chroma · kuzu · pgvector · lightgbm · sentence transformers · mediapipe · onnx runtime</td></tr>
+{stack_row("languages", ["python", "typescript", "javascript", "go", "c++", "html", "css"])}
+{stack_row("web &amp; apps", ["react", "next.js", "vite", "node.js", "fastapi", "flask", "tailwind", "electron"])}
+{stack_row("data", ["supabase", "postgres", "redis", "sqlite", "prisma"], ["pgvector", "faiss", "chroma", "kuzu"])}
+{stack_row("ml &amp; vision", ["pytorch", "scikit-learn", "opencv", "pandas", "numpy", "onnx", "hugging face"], ["lightgbm", "mediapipe", "sentence transformers"])}
+{stack_row("llms &amp; agents", ["langchain", "ollama", "gemini", "claude", "openai", "llama"], ["langgraph", "crewai", "mcp"])}
+{stack_row("cloud &amp; tools", ["aws", "docker", "vercel", "cloudflare", "git", "github", "github actions", "postman", "telegram"])}
 </table>
 
 <br>
