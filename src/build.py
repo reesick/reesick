@@ -205,7 +205,7 @@ def swap_field(Wd, H, tn, uid, **kw):
     d1, bg1, css = field(Wd, H, THEMES[tn], uid=uid + "a", **kw)
     d2, bg2, _ = field(Wd, H, THEMES[other], uid=uid + "b", **kw)
     css += ("@keyframes swap{0%{opacity:0}50%{opacity:1}100%{opacity:0}}"
-            ".swap{opacity:0;animation:swap 8s ease-in-out infinite}"
+            ".swap{opacity:0;animation:swap 8s linear infinite}"
             "@media (prefers-reduced-motion:reduce){.swap{animation:none}}")
     return d1 + d2, bg1 + f'<g class="swap">{bg2}</g>', css
 
