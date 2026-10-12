@@ -219,12 +219,12 @@ def hero(tn, th):
     # toolbar rule
     b.append(f'<line x1="{PAD}" y1="368.5" x2="{W - PAD}" y2="368.5" stroke="{th["rule"]}" stroke-width="1"/>')
     # right now, cycling
-    b.append(doc.text(PAD, 414, 13.5, [t("right now")], th["ink3"], extra=' letter-spacing=".2"'))
+    b.append(doc.text(PAD, 414, 13.5, [t("on record")], th["ink3"], extra=' letter-spacing=".2"'))
     lines = [
-        "building antAi for smart india hackathon 2026",
-        "chasing a leaderboard gap in the amazon ml challenge",
-        "shipping jqp, instagram publishing on meta apis",
-        "open to freelance: agents, pipelines, automation",
+        "six hackathon wins, fourteen finals",
+        "1st overall at hacker occupied pune",
+        "best innovation at hackmatrix, pccoe",
+        "top 10 at india innovates",
     ]
     n, per = len(lines), 4.5
     dur = n * per
@@ -345,9 +345,9 @@ def hero_m(tn, th):
     b.append(doc.text(PM, 374, 16.5, [t("b.tech cse (ai/ml) at vit pune.")], th["ink3"]))
     b.append(doc.text(PM, 399, 16.5, [t("mostly shipping at 2am.")], th["ink3"]))
     b.append(f'<line x1="{PM}" y1="430.5" x2="{WM - PM}" y2="430.5" stroke="{th["rule"]}"/>')
-    b.append(doc.text(PM, 466, 12.5, [t("right now")], th["ink3"], extra=' letter-spacing=".2"'))
-    lines = ["antAi for smart india hackathon 2026", "entity resolution, amazon ml challenge",
-             "jqp, publishing on meta apis", "open for freelance work"]
+    b.append(doc.text(PM, 466, 12.5, [t("on record")], th["ink3"], extra=' letter-spacing=".2"'))
+    lines = ["six wins, fourteen finals", "1st at hacker occupied pune",
+             "best innovation, hackmatrix", "top 10 at india innovates"]
     n, per = len(lines), 4.5
     k = 100 / n
     css += (f"@keyframes cyc{{0%{{opacity:0;transform:translateY(8px)}}{k * .12:.2f}%{{opacity:1;transform:none}}"
@@ -481,7 +481,7 @@ def card(tn, th, c, phone=False):
 
 SECTIONS = [
     ("Things i’ve built", "the ones worth opening. the rest are scratch."),
-    ("Right now", "what’s on the desk this month."),
+    ("Record", "wins and finals, mostly as team kala dhua."),
     ("Stack", "what the work gets built with."),
 ]
 PILLS = [
