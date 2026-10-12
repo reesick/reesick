@@ -479,6 +479,37 @@ def card(tn, th, c, phone=False):
     save(f"card-{c['slug']}{'-m' if phone else ''}-{tn}.svg", svg(Wd, H, defs, "".join(b), css, doc, alt))
 
 
+
+# ---------- the ai row: logos skillicons doesn't carry, drawn to match its tiles ----------
+import json as _json
+
+
+def ai_row():
+    logos = _json.load(open(os.path.join(HERE, "logos.json")))
+    T, G = 256, 44
+    n = len(logos)
+    Wr = n * (T + G) - G
+
+    def lum(h):
+        r, g, bb = (int(h[i:i + 2], 16) / 255 for i in (0, 2, 4))
+        return .2126 * r + .7152 * g + .0722 * bb
+
+    for tn, bg in (("blue", "#F4F2ED"), ("green", "#242938")):
+        tiles = []
+        for i, (name, d) in enumerate(logos.items()):
+            hx = d["hex"]
+            fill = "#" + hx
+            if tn == "green" and lum(hx) < .25:
+                fill = "#FFFFFF"
+            if tn == "blue" and lum(hx) > .8:
+                fill = "#" + hx
+            x = i * (T + G)
+            tiles.append(f'<g transform="translate({x} 0)"><title>{name}</title><rect width="{T}" height="{T}" rx="60" fill="{bg}"/>'
+                         f'<path transform="translate(53 53) scale(6.25)" fill="{fill}" d="{d["path"]}"/></g>')
+        s = (f'<svg xmlns="http://www.w3.org/2000/svg" width="{Wr}" height="{T}" viewBox="0 0 {Wr} {T}" role="img" '
+             f'aria-label="{", ".join(logos)}">' + "".join(tiles) + "</svg>")
+        save(f"stack-ai-{tn}.svg", s)
+
 SECTIONS = [
     ("Things i’ve built", "the ones worth opening. the rest are scratch."),
     ("Record", "wins and finals, mostly as team kala dhua."),
@@ -504,4 +535,5 @@ if __name__ == "__main__":
         footer(tn, th)
         for name, label, solid, ext in PILLS:
             widths[name] = pill(tn, th, name, label, solid, ext)
+    ai_row()
     print("pill widths", widths)

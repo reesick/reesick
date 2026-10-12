@@ -95,16 +95,24 @@ six hackathon wins · fourteen finals · 451 contributions last year, a third of
 <picture><source media="(prefers-color-scheme: dark) and (max-width: 600px)" srcset="assets/sec-stack-m-green.svg"><source media="(max-width: 600px)" srcset="assets/sec-stack-m-blue.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/sec-stack-green.svg"><img src="assets/sec-stack-blue.svg" alt="Stack. what the work gets built with." width="100%"></picture>
 
 **languages**<br>
-<picture><source media="(prefers-color-scheme: dark)" srcset="https://skillicons.dev/icons?i=python,ts,js,cpp,kotlin,go,html,css&perline=12&theme=dark"><img src="https://skillicons.dev/icons?i=python,ts,js,cpp,kotlin,go,html,css&perline=12&theme=light" alt="python, typescript, javascript, c++, kotlin, go, html, css" height="44"></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="https://skillicons.dev/icons?i=python,ts,js,go,cpp,html,css&perline=12&theme=dark"><img src="https://skillicons.dev/icons?i=python,ts,js,go,cpp,html,css&perline=12&theme=light" alt="python, typescript, javascript, go, c++, html, css" height="44"></picture>
 
-**web & backend**<br>
-<picture><source media="(prefers-color-scheme: dark)" srcset="https://skillicons.dev/icons?i=react,nextjs,nodejs,fastapi,tailwind,supabase,postgres,redis&perline=12&theme=dark"><img src="https://skillicons.dev/icons?i=react,nextjs,nodejs,fastapi,tailwind,supabase,postgres,redis&perline=12&theme=light" alt="react, next.js, node, fastapi, tailwind, supabase, postgres, redis" height="44"></picture>
+**web, backend & apps**<br>
+<picture><source media="(prefers-color-scheme: dark)" srcset="https://skillicons.dev/icons?i=react,nextjs,vite,nodejs,fastapi,flask,tailwind,electron&perline=12&theme=dark"><img src="https://skillicons.dev/icons?i=react,nextjs,vite,nodejs,fastapi,flask,tailwind,electron&perline=12&theme=light" alt="react, next.js, vite, node, fastapi, flask, tailwind, electron" height="44"></picture>
 
-**ai & ml**<br>
-<picture><source media="(prefers-color-scheme: dark)" srcset="https://skillicons.dev/icons?i=pytorch,tensorflow,opencv,sklearn&perline=12&theme=dark"><img src="https://skillicons.dev/icons?i=pytorch,tensorflow,opencv,sklearn&perline=12&theme=light" alt="pytorch, tensorflow, opencv, scikit-learn" height="44"></picture>
+**data**<br>
+<picture><source media="(prefers-color-scheme: dark)" srcset="https://skillicons.dev/icons?i=supabase,postgres,redis,sqlite,prisma&perline=12&theme=dark"><img src="https://skillicons.dev/icons?i=supabase,postgres,redis,sqlite,prisma&perline=12&theme=light" alt="supabase, postgres, redis, sqlite, prisma" height="44"></picture>
 
-**tools**<br>
-<picture><source media="(prefers-color-scheme: dark)" srcset="https://skillicons.dev/icons?i=git,github,docker,vercel,vscode,postman&perline=12&theme=dark"><img src="https://skillicons.dev/icons?i=git,github,docker,vercel,vscode,postman&perline=12&theme=light" alt="git, github, docker, vercel, vs code, postman" height="44"></picture>
+**ml & vision**<br>
+<picture><source media="(prefers-color-scheme: dark)" srcset="https://skillicons.dev/icons?i=pytorch,sklearn,opencv&perline=12&theme=dark"><img src="https://skillicons.dev/icons?i=pytorch,sklearn,opencv&perline=12&theme=light" alt="pytorch, scikit-learn, opencv" height="44"></picture>
+
+**llms & agents**<br>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/stack-ai-green.svg"><img src="assets/stack-ai-blue.svg" alt="langchain, ollama, gemini, claude, openai, llama, hugging face, onnx" height="44"></picture>
+
+<sub>plus langgraph, crewai, faiss, chroma, kuzu, pgvector, lightgbm, sentence transformers, mediapipe and onnx runtime, which don't have logos here.</sub>
+
+**cloud & tools**<br>
+<picture><source media="(prefers-color-scheme: dark)" srcset="https://skillicons.dev/icons?i=aws,docker,vercel,cloudflare,git,github,githubactions,vscode,postman&perline=12&theme=dark"><img src="https://skillicons.dev/icons?i=aws,docker,vercel,cloudflare,git,github,githubactions,vscode,postman&perline=12&theme=light" alt="aws, docker, vercel, cloudflare, git, github, github actions, vs code, postman" height="44"></picture>
 
 <br>
 

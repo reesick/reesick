@@ -159,16 +159,24 @@ six hackathon wins · fourteen finals · 451 contributions last year, a third of
 {band("stack", "Stack. what the work gets built with.")}
 
 **languages**<br>
-{skill("python,ts,js,cpp,kotlin,go,html,css", "python, typescript, javascript, c++, kotlin, go, html, css")}
+{skill("python,ts,js,go,cpp,html,css", "python, typescript, javascript, go, c++, html, css")}
 
-**web & backend**<br>
-{skill("react,nextjs,nodejs,fastapi,tailwind,supabase,postgres,redis", "react, next.js, node, fastapi, tailwind, supabase, postgres, redis")}
+**web, backend & apps**<br>
+{skill("react,nextjs,vite,nodejs,fastapi,flask,tailwind,electron", "react, next.js, vite, node, fastapi, flask, tailwind, electron")}
 
-**ai & ml**<br>
-{skill("pytorch,tensorflow,opencv,sklearn", "pytorch, tensorflow, opencv, scikit-learn")}
+**data**<br>
+{skill("supabase,postgres,redis,sqlite,prisma", "supabase, postgres, redis, sqlite, prisma")}
 
-**tools**<br>
-{skill("git,github,docker,vercel,vscode,postman", "git, github, docker, vercel, vs code, postman")}
+**ml & vision**<br>
+{skill("pytorch,sklearn,opencv", "pytorch, scikit-learn, opencv")}
+
+**llms & agents**<br>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/stack-ai-green.svg"><img src="assets/stack-ai-blue.svg" alt="langchain, ollama, gemini, claude, openai, llama, hugging face, onnx" height="44"></picture>
+
+<sub>plus langgraph, crewai, faiss, chroma, kuzu, pgvector, lightgbm, sentence transformers, mediapipe and onnx runtime, which don't have logos here.</sub>
+
+**cloud & tools**<br>
+{skill("aws,docker,vercel,cloudflare,git,github,githubactions,vscode,postman", "aws, docker, vercel, cloudflare, git, github, github actions, vs code, postman")}
 
 <br>
 
