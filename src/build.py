@@ -204,8 +204,8 @@ def swap_field(Wd, H, tn, uid, **kw):
     other = "green" if tn == "blue" else "blue"
     d1, bg1, css = field(Wd, H, THEMES[tn], uid=uid + "a", **kw)
     d2, bg2, _ = field(Wd, H, THEMES[other], uid=uid + "b", **kw)
-    css += ("@keyframes swap{0%,38%{opacity:0}50%,88%{opacity:1}100%{opacity:0}}"
-            ".swap{opacity:0;animation:swap 22s cubic-bezier(.76,0,.24,1) infinite}"
+    css += ("@keyframes swap{0%{opacity:0}50%{opacity:1}100%{opacity:0}}"
+            ".swap{opacity:0;animation:swap 8s ease-in-out infinite}"
             "@media (prefers-reduced-motion:reduce){.swap{animation:none}}")
     return d1 + d2, bg1 + f'<g class="swap">{bg2}</g>', css
 
@@ -262,7 +262,7 @@ def band(tn, th, idx, total, title, note, oy):
     H = 132
     doc = Doc()
     uid = f"b{idx}"
-    defs, bg, css = field(W, H, th, oy=oy, uid=uid, radius=14)
+    defs, bg, css = swap_field(W, H, tn, uid, oy=oy, radius=14)
     b = [bg]
     b.append(f'<g filter="url(#sh)">' + doc.text(PAD - 8, 76, 48, [doc.run(title, "s")], th["ink"], extra=' letter-spacing="-.6"') + '</g>')
     b.append(doc.text(PAD - 8, 108, 19, [doc.run(note, "si")], th["ink3"]))
@@ -274,7 +274,7 @@ def band(tn, th, idx, total, title, note, oy):
 def footer(tn, th):
     H = 300
     doc = Doc()
-    defs, bg, css = field(W, H, th, oy=.42, uid="ft")
+    defs, bg, css = swap_field(W, H, tn, "ft", oy=.42)
     b = [bg]
     b.append(f'<g filter="url(#sh)">' + doc.text(PAD, 96, 52, [doc.run("Say hello", "s")], th["ink"], extra=' letter-spacing="-.7"') + '</g>')
     b.append(doc.text(PAD, 130, 19, [doc.run("an agent to build, a product to ship, or both.", "si")], th["ink3"]))
@@ -304,7 +304,7 @@ def pill(tn, th, name, label, solid=False, ext=True):
     Wp = math.ceil(tw + padx * 2 + aw)
     pt = PILL_THEME[tn]
     if solid:
-        defs, bg, css = field(Wp, H, th, oy=0, uid="p", radius=H / 2, vh=H, light=False, drift=False)
+        defs, bg, css = swap_field(Wp, H, tn, "p", oy=0, radius=H / 2, vh=H, light=False, drift=False)
         ink = "#FFFFFF" if tn == "blue" else th["ink"]
         b = [bg]
     else:
@@ -376,7 +376,7 @@ def band_m(tn, th, idx, total, title, note, oy, slug):
     H = 116
     doc = Doc()
     uid = f"bm{idx}"
-    defs, bg, css = field(WM, H, th, oy=oy, uid=uid, radius=12, vh=WM * 1.25)
+    defs, bg, css = swap_field(WM, H, tn, uid, oy=oy, radius=12, vh=WM * 1.25)
     fit([(title, "s", 38)], WM - 2 * PM - 50, title)
     fit([(note, "si", 16)], WM - 2 * PM, note)
     b = [bg,
@@ -388,7 +388,7 @@ def band_m(tn, th, idx, total, title, note, oy, slug):
 def footer_m(tn, th):
     H = 312
     doc = Doc()
-    defs, bg, css = field(WM, H, th, oy=.3, uid="fm", vh=WM * 1.25)
+    defs, bg, css = swap_field(WM, H, tn, "fm", oy=.3, vh=WM * 1.25)
     mail = "shreeviraj5387@gmail.com"
     fit([(mail, "s", 30)], WM - 2 * PM, "mail")
     mw = width(mail, "s", 30)
