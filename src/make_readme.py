@@ -13,7 +13,7 @@ def pic(name, alt, width=None, height=None, href=None, phone=False):
         m = (f'<source media="(prefers-color-scheme: dark) and {PHONE}" srcset="assets/{name}-m-green.svg">'
              f'<source media="{PHONE}" srcset="assets/{name}-m-blue.svg">')
     p = (f'<picture>{m}<source media="(prefers-color-scheme: dark)" srcset="assets/{name}-green.svg">'
-         f'<img src="assets/{name}-blue.svg" alt="{alt}"{size}></picture>')
+         f'<img src="assets/{name}-blue.svg" alt="{alt}"{size} loading="eager"></picture>')
     return f'<a href="{href}">{p}</a>' if href else p
 
 
@@ -128,32 +128,32 @@ six hackathon wins · fourteen finals · 451 contributions last year, a third of
 
 {band("things-ive-built", "Things i've built. the ones worth opening.")}
 
-### agents & automation
+### {pic("pill-dom-agents--automation", "agents & automation", height="38")}
 *things that decide, act, and keep running when i log off.*
 
 {table(AGENTS)}
 
-### memory & retrieval
+### {pic("pill-dom-memory--retrieval", "memory & retrieval", height="38")}
 *getting an llm to remember the right thing, and find it again.*
 
 {table(MEMORY)}
 
-### finance & compliance
+### {pic("pill-dom-finance--compliance", "finance & compliance", height="38")}
 *where a rounding error is a wrong answer.*
 
 {table(FINANCE)}
 
-### ml & vision
+### {pic("pill-dom-ml--vision", "ml & vision", height="38")}
 *models that had to hold up outside the notebook.*
 
 {table(ML)}
 
-### civic & public good
+### {pic("pill-dom-civic--public-good", "civic & public good", height="38")}
 *maps, farms, floods and careers.*
 
 {table(CIVIC)}
 
-### learning & small tools
+### {pic("pill-dom-learning--small-tools", "learning & small tools", height="38")}
 *software that teaches back, and a few things that fixed my own days.*
 
 {table(LEARN)}

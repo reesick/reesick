@@ -1,6 +1,6 @@
-<a href="https://shreeviraj.studio"><picture><source media="(prefers-color-scheme: dark) and (max-width: 600px)" srcset="assets/hero-m-green.svg"><source media="(max-width: 600px)" srcset="assets/hero-m-blue.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/hero-green.svg"><img src="assets/hero-blue.svg" alt="Shreeviraj Matale. creative director who codes." width="100%"></picture></a>
+<a href="https://shreeviraj.studio"><picture><source media="(prefers-color-scheme: dark) and (max-width: 600px)" srcset="assets/hero-m-green.svg"><source media="(max-width: 600px)" srcset="assets/hero-m-blue.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/hero-green.svg"><img src="assets/hero-blue.svg" alt="Shreeviraj Matale. creative director who codes." width="100%" loading="eager"></picture></a>
 
-<a href="mailto:shreeviraj5387@gmail.com"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/pill-hire-green.svg"><img src="assets/pill-hire-blue.svg" alt="email me" height="38"></picture></a> <a href="https://shreeviraj.studio"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/pill-site-green.svg"><img src="assets/pill-site-blue.svg" alt="shreeviraj.studio" height="38"></picture></a> <a href="https://x.com/shreeviraj_dev"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/pill-x-green.svg"><img src="assets/pill-x-blue.svg" alt="x" height="38"></picture></a> <a href="https://linkedin.com/in/shreeviraj"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/pill-linkedin-green.svg"><img src="assets/pill-linkedin-blue.svg" alt="linkedin" height="38"></picture></a> <a href="https://instagram.com/1cr.sri"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/pill-instagram-green.svg"><img src="assets/pill-instagram-blue.svg" alt="instagram" height="38"></picture></a>
+<a href="mailto:shreeviraj5387@gmail.com"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/pill-hire-green.svg"><img src="assets/pill-hire-blue.svg" alt="email me" height="38" loading="eager"></picture></a> <a href="https://shreeviraj.studio"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/pill-site-green.svg"><img src="assets/pill-site-blue.svg" alt="shreeviraj.studio" height="38" loading="eager"></picture></a> <a href="https://x.com/shreeviraj_dev"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/pill-x-green.svg"><img src="assets/pill-x-blue.svg" alt="x" height="38" loading="eager"></picture></a> <a href="https://linkedin.com/in/shreeviraj"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/pill-linkedin-green.svg"><img src="assets/pill-linkedin-blue.svg" alt="linkedin" height="38" loading="eager"></picture></a> <a href="https://instagram.com/1cr.sri"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/pill-instagram-green.svg"><img src="assets/pill-instagram-blue.svg" alt="instagram" height="38" loading="eager"></picture></a>
 
 i'm **sri**. i build agents, memory systems and audit pipelines. mostly for hackathons, sometimes for clients, occasionally because something annoyed me. i also art direct, which is why this page looks the way it does.
 
@@ -10,9 +10,9 @@ six hackathon wins · fourteen finals · 451 contributions last year, a third of
 
 <br>
 
-<picture><source media="(prefers-color-scheme: dark) and (max-width: 600px)" srcset="assets/sec-things-ive-built-m-green.svg"><source media="(max-width: 600px)" srcset="assets/sec-things-ive-built-m-blue.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/sec-things-ive-built-green.svg"><img src="assets/sec-things-ive-built-blue.svg" alt="Things i've built. the ones worth opening." width="100%"></picture>
+<picture><source media="(prefers-color-scheme: dark) and (max-width: 600px)" srcset="assets/sec-things-ive-built-m-green.svg"><source media="(max-width: 600px)" srcset="assets/sec-things-ive-built-m-blue.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/sec-things-ive-built-green.svg"><img src="assets/sec-things-ive-built-blue.svg" alt="Things i've built. the ones worth opening." width="100%" loading="eager"></picture>
 
-### agents & automation
+### <picture><source media="(prefers-color-scheme: dark)" srcset="assets/pill-dom-agents--automation-green.svg"><img src="assets/pill-dom-agents--automation-blue.svg" alt="agents & automation" height="38" loading="eager"></picture>
 *things that decide, act, and keep running when i log off.*
 
 | what | with what | the twist |
@@ -26,7 +26,7 @@ six hackathon wins · fourteen finals · 451 contributions last year, a third of
 | **ClipFarm** `private`<br>repost pipeline for clipping programs. reframes, brands, de-dupes and checks a clip before it goes up | python · ffmpeg · flask · pillow | *fully offline, no accounts, no api keys. it tells you if the post will get approved* |
 | **[daily motivator](https://github.com/reesick/motivator)**<br>telegram bot that writes one thought a day and sends it at 7 am | python telegram bot · gemini · asyncpg · apscheduler | *checks its own history first, so it never says the same thing twice* |
 
-### memory & retrieval
+### <picture><source media="(prefers-color-scheme: dark)" srcset="assets/pill-dom-memory--retrieval-green.svg"><img src="assets/pill-dom-memory--retrieval-blue.svg" alt="memory & retrieval" height="38" loading="eager"></picture>
 *getting an llm to remember the right thing, and find it again.*
 
 | what | with what | the twist |
@@ -35,7 +35,7 @@ six hackathon wins · fourteen finals · 451 contributions last year, a third of
 | **[memos v2](https://github.com/reesick/memos-v2)**<br>local first memory workspace, with a dashboard to browse what it remembers | typescript · next.js · sqlite · postgres · mcp sdk | *runs on synthetic embeddings, so you can try it without a single api key* |
 | **edi-5** `private`<br>multi domain rag assistant. started on cricket, now does finance and general knowledge too | fastapi · langchain · chroma · groq · react | *it routes before it retrieves. live, historical and analytical questions each get their own path* |
 
-### finance & compliance
+### <picture><source media="(prefers-color-scheme: dark)" srcset="assets/pill-dom-finance--compliance-green.svg"><img src="assets/pill-dom-finance--compliance-blue.svg" alt="finance & compliance" height="38" loading="eager"></picture>
 *where a rounding error is a wrong answer.*
 
 | what | with what | the twist |
@@ -44,7 +44,7 @@ six hackathon wins · fourteen finals · 451 contributions last year, a third of
 | **[SAR-mvp](https://github.com/reesick/SAR-mvp)**<br>anti money laundering. writes the suspicious activity report for an analyst | langgraph · fastapi · postgres + pgvector · ollama · react | *seven agents and a local mistral. nothing leaves the machine* |
 | **[ESG greenwashing agent](https://github.com/Pragati-1-7/Automated_ESG_Greenwashing_agent)** `collab`<br>reads a sustainability report and checks every claim against filings, regulators and news | langgraph · groq · pdfplumber · bm25 · mcp · fastapi | *every claim ends as align, contradict or insufficient, with an audit trail and a 0 to 100 risk score* |
 
-### ml & vision
+### <picture><source media="(prefers-color-scheme: dark)" srcset="assets/pill-dom-ml--vision-green.svg"><img src="assets/pill-dom-ml--vision-blue.svg" alt="ml & vision" height="38" loading="eager"></picture>
 *models that had to hold up outside the notebook.*
 
 | what | with what | the twist |
@@ -54,7 +54,7 @@ six hackathon wins · fourteen finals · 451 contributions last year, a third of
 | **[CLINDerm](https://github.com/reesick/clinderm)**<br>three face photos in, an annotated skin health report out | fastapi · mediapipe · opencv · segformer · yolov8 | *four vision models, all running locally on a laptop 4050* |
 | **[threat forecasting](https://github.com/reesick/cybersec-ind)**<br>forecasts cyber threats and the tech that counters them | pytorch geometric · statsmodels · networkx · fastapi | *a 2025 paper rebuilt end to end, with honest fallbacks when the apis say no* |
 
-### civic & public good
+### <picture><source media="(prefers-color-scheme: dark)" srcset="assets/pill-dom-civic--public-good-green.svg"><img src="assets/pill-dom-civic--public-good-blue.svg" alt="civic & public good" height="38" loading="eager"></picture>
 *maps, farms, floods and careers.*
 
 | what | with what | the twist |
@@ -64,7 +64,7 @@ six hackathon wins · fourteen finals · 451 contributions last year, a third of
 | **[career recommender](https://github.com/reesick/sihreccadv)**<br>smart india hackathon. a personality test goes in, careers come out. first cut in [SIHreccomender](https://github.com/reesick/SIHreccomender) | fastapi · faiss · sentence transformers · supabase | *big five and riasec scores turned into a semantic search over careers* |
 | **[crop contracts](https://github.com/reesick/agribc)**<br>contract farming marketplace. farmers list, buyers propose, both sign | fastapi · supabase · gemini · reportlab | *the contract pdf writes itself once both sides agree* |
 
-### learning & small tools
+### <picture><source media="(prefers-color-scheme: dark)" srcset="assets/pill-dom-learning--small-tools-green.svg"><img src="assets/pill-dom-learning--small-tools-blue.svg" alt="learning & small tools" height="38" loading="eager"></picture>
 *software that teaches back, and a few things that fixed my own days.*
 
 | what | with what | the twist |
@@ -81,7 +81,7 @@ six hackathon wins · fourteen finals · 451 contributions last year, a third of
 
 <br>
 
-<picture><source media="(prefers-color-scheme: dark) and (max-width: 600px)" srcset="assets/sec-record-m-green.svg"><source media="(max-width: 600px)" srcset="assets/sec-record-m-blue.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/sec-record-green.svg"><img src="assets/sec-record-blue.svg" alt="Record. wins and finals, mostly as team kala dhua." width="100%"></picture>
+<picture><source media="(prefers-color-scheme: dark) and (max-width: 600px)" srcset="assets/sec-record-m-green.svg"><source media="(max-width: 600px)" srcset="assets/sec-record-m-blue.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/sec-record-green.svg"><img src="assets/sec-record-blue.svg" alt="Record. wins and finals, mostly as team kala dhua." width="100%" loading="eager"></picture>
 
 - **1st overall**, hacker occupied pune. *an agentic supply chain and distribution system, built in 24 hours.*
 - **best innovation**, hackmatrix by pccoe’s aimsa.
@@ -92,7 +92,7 @@ six hackathon wins · fourteen finals · 451 contributions last year, a third of
 
 <br>
 
-<picture><source media="(prefers-color-scheme: dark) and (max-width: 600px)" srcset="assets/sec-stack-m-green.svg"><source media="(max-width: 600px)" srcset="assets/sec-stack-m-blue.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/sec-stack-green.svg"><img src="assets/sec-stack-blue.svg" alt="Stack. what the work gets built with." width="100%"></picture>
+<picture><source media="(prefers-color-scheme: dark) and (max-width: 600px)" srcset="assets/sec-stack-m-green.svg"><source media="(max-width: 600px)" srcset="assets/sec-stack-m-blue.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/sec-stack-green.svg"><img src="assets/sec-stack-blue.svg" alt="Stack. what the work gets built with." width="100%" loading="eager"></picture>
 
 <table>
 <tr><td><b>languages</b></td><td><picture><source media="(prefers-color-scheme: dark)" srcset="assets/chips/python-d.svg"><img src="assets/chips/python.svg" height="20" alt="python"></picture> &nbsp; <picture><source media="(prefers-color-scheme: dark)" srcset="assets/chips/typescript-d.svg"><img src="assets/chips/typescript.svg" height="20" alt="typescript"></picture> &nbsp; <picture><source media="(prefers-color-scheme: dark)" srcset="assets/chips/javascript-d.svg"><img src="assets/chips/javascript.svg" height="20" alt="javascript"></picture> &nbsp; <picture><source media="(prefers-color-scheme: dark)" srcset="assets/chips/go-d.svg"><img src="assets/chips/go.svg" height="20" alt="go"></picture> &nbsp; <picture><source media="(prefers-color-scheme: dark)" srcset="assets/chips/c-d.svg"><img src="assets/chips/c.svg" height="20" alt="c++"></picture> &nbsp; <picture><source media="(prefers-color-scheme: dark)" srcset="assets/chips/html-d.svg"><img src="assets/chips/html.svg" height="20" alt="html"></picture> &nbsp; <picture><source media="(prefers-color-scheme: dark)" srcset="assets/chips/css-d.svg"><img src="assets/chips/css.svg" height="20" alt="css"></picture></td></tr>
@@ -118,4 +118,4 @@ chronically online
 
 <br>
 
-<a href="mailto:shreeviraj5387@gmail.com"><picture><source media="(prefers-color-scheme: dark) and (max-width: 600px)" srcset="assets/footer-m-green.svg"><source media="(max-width: 600px)" srcset="assets/footer-m-blue.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/footer-green.svg"><img src="assets/footer-blue.svg" alt="Say hello. shreeviraj5387@gmail.com" width="100%"></picture></a>
+<a href="mailto:shreeviraj5387@gmail.com"><picture><source media="(prefers-color-scheme: dark) and (max-width: 600px)" srcset="assets/footer-m-green.svg"><source media="(max-width: 600px)" srcset="assets/footer-m-blue.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/footer-green.svg"><img src="assets/footer-blue.svg" alt="Say hello. shreeviraj5387@gmail.com" width="100%" loading="eager"></picture></a>

@@ -538,6 +538,9 @@ def stack_icons():
     print("chips", len(icons) + len(PLAIN_TOOLS))
 
 
+DOMAINS = ["agents & automation", "memory & retrieval", "finance & compliance",
+           "ml & vision", "civic & public good", "learning & small tools"]
+
 SECTIONS = [
     ("Things i’ve built", "the ones worth opening. the rest are scratch."),
     ("Record", "wins and finals, mostly as team kala dhua."),
@@ -563,5 +566,7 @@ if __name__ == "__main__":
         footer(tn, th)
         for name, label, solid, ext in PILLS:
             widths[name] = pill(tn, th, name, label, solid, ext)
+        for label in DOMAINS:
+            pill(tn, th, "dom-" + slugify(label), label, True, False)
     stack_icons()
     print("pill widths", widths)
